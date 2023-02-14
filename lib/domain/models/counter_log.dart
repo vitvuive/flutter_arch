@@ -12,19 +12,19 @@ class CounterLog with _$CounterLog {
       _$CounterLogFromJson(json);
 }
 
-extension MutableCounterLog on CounterLog {
-  CounterLog setCount(int count) {
-    return copyWith(
-      count: count,
-      lastUpdate: DateTime.now(),
-    );
-  }
+// extension MutableCounterLog on CounterLog {
+//   CounterLog setCount(int count) {
+//     return copyWith(
+//       count: count,
+//       lastUpdate: DateTime.now(),
+//     );
+//   }
 
-  CounterLog increase() {
-    return setCount(count + 1);
-  }
+//   CounterLog increase() {
+//     return setCount(count + 1);
+//   }
 
-  CounterLog decrease() {
-    return setCount(count - 1);
-  }
-}
+//   CounterLog decrease() {
+//     return setCount(count - 1);
+//   }
+// }

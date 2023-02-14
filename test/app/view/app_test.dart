@@ -1,4 +1,4 @@
-import 'package:ddd_arch/presentation/app.dart';
+import 'package:ddd_arch/app/app.dart';
 import 'package:ddd_arch/presentation/counter/counter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
