@@ -1,7 +1,8 @@
 import 'package:ddd_arch/app/blocs/setting_bloc/setting_bloc.dart';
 import 'package:ddd_arch/app/blocs/setting_bloc/setting_state.dart';
+import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/app/navigation_impl.dart';
-import 'package:ddd_arch/core/resource/theme.dart';
+import 'package:ddd_arch/core/resource/config/theme.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/home/home_page.dart';

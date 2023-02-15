@@ -1,4 +1,4 @@
-import 'package:ddd_arch/app/navigation_impl.dart';
+import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/domain/repository/auth_repo.dart';
 import 'package:ddd_arch/presentation/home/blocs/home_bloc.dart';

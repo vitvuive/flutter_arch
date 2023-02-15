@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:ddd_arch/app/navigation/app_navigator.dart';
-import 'package:ddd_arch/app/navigation_impl.dart';
-import 'package:ddd_arch/service/auth_service.dart';
-import 'package:ddd_arch/service/profile_service.dart';
+import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/domain/repository/auth_repo.dart';
 import 'package:ddd_arch/presentation/home/blocs/home_state.dart';
+import 'package:ddd_arch/service/auth_service.dart';
+import 'package:ddd_arch/service/profile_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 

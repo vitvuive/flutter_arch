@@ -1,6 +1,4 @@
 import 'package:ddd_arch/app/navigation/app_navigator.dart';
-import 'package:ddd_arch/presentation/authen/login/view/login_page.dart';
-import 'package:ddd_arch/presentation/home/home_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 
@@ -25,14 +23,4 @@ class NavigationImpl extends AppNavigator {
   Future<T?> replaceAllNamed<T extends Object>(String name) {
     return currentState.pushNamedAndRemoveUntil(name, (route) => false);
   }
-}
-
-class Routes {
-  static String login = '/login';
-  static String home = '/home';
-
-  static Map<String, WidgetBuilder> routes = {
-    home: (context) => const HomePage(),
-    login: (context) => const LoginPage()
-  };
 }
