@@ -44,7 +44,7 @@ class CounterService {
     // });
 
     return BehaviorSubject.seeded(
-            CounterLog(count: 1, lastUpdate: DateTime.now()))
-        .asBroadcastStream();
+      CounterLog(count: 1, lastUpdate: DateTime.now()),
+    ).asBroadcastStream();
   }
 }

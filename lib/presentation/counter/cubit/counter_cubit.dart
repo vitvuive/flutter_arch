@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:ddd_arch/application/auth_service.dart';
-import 'package:ddd_arch/application/counter_service.dart';
+import 'package:ddd_arch/service/auth_service.dart';
+import 'package:ddd_arch/service/counter_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';

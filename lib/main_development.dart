@@ -1,5 +1,5 @@
-import 'package:ddd_arch/presentation/app.dart';
 import 'package:ddd_arch/bootstrap.dart';
+import 'package:ddd_arch/presentation/app.dart';
 import 'package:flutter/material.dart';
 
 import 'app/app.dart';

@@ -48,8 +48,10 @@ class AuthRepoImpl extends AuthRepo {
   Stream<AuthStatus> streamAuthStatus() => _streamStatus.asBroadcastStream();
 
   @override
-  Future<void> userNamePasswordLogin(
-      {required String userName, required String password}) async {
+  Future<void> userNamePasswordLogin({
+    required String userName,
+    required String password,
+  }) async {
     await _appPreference.setUser(
       User(
         name: userName,
