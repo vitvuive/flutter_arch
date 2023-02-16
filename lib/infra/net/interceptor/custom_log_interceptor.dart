@@ -1,6 +1,6 @@
+import 'package:ddd_arch/core/utils/log_utils.dart';
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
 import 'package:ddd_arch/shared/config/log_config.dart';
-import 'package:ddd_arch/shared/utils/log_utils.dart';
 import 'package:dio/dio.dart';
 
 class CustomLogInterceptor extends BaseInterceptor {
@@ -57,7 +57,10 @@ class CustomLogInterceptor extends BaseInterceptor {
   }
 
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  void onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) {
     if (!_enableLogInterceptor || !enableLogSuccessResponse) {
       handler.next(response);
 

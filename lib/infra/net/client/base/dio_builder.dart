@@ -9,13 +9,16 @@ class DioBuilder {
       BaseOptions(
         connectTimeout: options?.connectTimeout ??
             const Duration(
-                milliseconds: ServerTimeoutConstants.connectTimeoutInMs),
+              milliseconds: ServerTimeoutConstants.connectTimeoutInMs,
+            ),
         receiveTimeout: options?.receiveTimeout ??
             const Duration(
-                milliseconds: ServerTimeoutConstants.receiveTimeoutInMs),
+              milliseconds: ServerTimeoutConstants.receiveTimeoutInMs,
+            ),
         sendTimeout: options?.sendTimeout ??
             const Duration(
-                milliseconds: ServerTimeoutConstants.sendTimeoutInMs),
+              milliseconds: ServerTimeoutConstants.sendTimeoutInMs,
+            ),
         baseUrl: options?.baseUrl ?? '',
       ),
     );

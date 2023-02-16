@@ -11,7 +11,9 @@ class DataResponse<T> {
   });
 
   factory DataResponse.fromJson(
-          Map<String, dynamic> json, T Function(dynamic) fromJsonT) =>
+    Map<String, dynamic> json,
+    T Function(dynamic) fromJsonT,
+  ) =>
       _$DataResponseFromJson(json, fromJsonT);
 
   final T? data;
@@ -24,7 +26,9 @@ class DataListResponse<T> {
   });
 
   factory DataListResponse.fromJson(
-          MapJson json, T Function(dynamic) fromJsonT) =>
+    MapJson json,
+    T Function(dynamic) fromJsonT,
+  ) =>
       _$DataListResponseFromJson(json, fromJsonT);
 
   final List<T>? data;

@@ -10,7 +10,8 @@ class RefreshTokenApi {
   final RefreshTokenApiClient _refreshTokenApiClient;
 
   Future<DataResponse<RefreshTokenData>> refreshToken(
-      String refreshToken) async {
+    String refreshToken,
+  ) async {
     return DataResponse(
       data: const RefreshTokenData(accessToken: '123123123123'),
     );

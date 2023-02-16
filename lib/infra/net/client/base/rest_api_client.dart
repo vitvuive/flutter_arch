@@ -92,7 +92,7 @@ class RestApiClient {
     return _dio.fetch(requestOptions);
   }
 
-  Future<Response> _requestByMethod({
+  Future<Response<dynamic>> _requestByMethod({
     required RestMethod method,
     required String path,
     Map<String, dynamic>? queryParameters,

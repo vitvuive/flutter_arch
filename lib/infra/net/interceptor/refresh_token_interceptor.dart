@@ -43,7 +43,9 @@ class RefreshTokenInterceptor extends BaseInterceptor {
   }
 
   void _onExpiredToken(
-      RequestOptions options, ErrorInterceptorHandler handler) {
+    RequestOptions options,
+    ErrorInterceptorHandler handler,
+  ) {
     _queue.addLast(Tuple2(options, handler));
     if (!_isRefreshing) {
       _isRefreshing = true;
