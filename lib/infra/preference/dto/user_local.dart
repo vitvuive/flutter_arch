@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user_local.freezed.dart';
 part 'user_local.g.dart';
 
-@JsonSerializable()
 @freezed
 class UserLocal with _$UserLocal {
   const factory UserLocal({

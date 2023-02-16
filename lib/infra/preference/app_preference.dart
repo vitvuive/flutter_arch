@@ -12,15 +12,21 @@ class AppPreference {
 
   static const String accessTokenKey = 'accessTokenKey';
   static const String userKey = 'userKey';
+  static const String refreshTokenKey = 'refreshTokenKey';
 
-  String? get accessToken => _prefs.getString(accessTokenKey);
+  String get accessToken => _prefs.getString(accessTokenKey) ?? '';
 
-  bool get isLogin => accessToken != null && accessToken!.isNotEmpty;
+  String get refreshToken => _prefs.getString(refreshTokenKey) ?? '';
+
+  bool get isLogin => accessToken.isNotEmpty;
 
   Future<void> saveToken(String token) => _prefs.setString(
         accessTokenKey,
         token,
       );
+
+  Future<void> saveRefreshToken(String refreshToken) =>
+      _prefs.setString(refreshTokenKey, refreshToken);
 
   MapJson? _getByKey(String key) {
     final jsonRaw = _prefs.getString(key);
