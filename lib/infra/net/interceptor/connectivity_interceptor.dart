@@ -1,6 +1,5 @@
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
-import 'package:dio/src/options.dart';
-import 'package:dio/src/dio_mixin.dart';
+import 'package:dio/dio.dart';
 
 class ConnectivityInterceptor extends BaseInterceptor {
   @override

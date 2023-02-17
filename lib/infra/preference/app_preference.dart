@@ -40,9 +40,9 @@ class AppPreference {
     );
   }
 
-  Future<User> getUserCurrentUser() async {
+  Future<User?> getUserCurrentUser() async {
     final user = _getByKey(userKey);
-    if (user == null) throw Exception('Not found user');
+    if (user == null) return null;
     return User.fromJson(user);
   }
 

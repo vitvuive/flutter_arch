@@ -12,7 +12,7 @@ class UserRepoImpl implements UserRepo {
 
   Future<void> _init() async {
     final user = await getCurrentUser();
-    _stream.add(user);
+    if (user != null) _stream.add(user);
   }
 
   final AppPreference _appPreference;
@@ -20,7 +20,7 @@ class UserRepoImpl implements UserRepo {
   final _stream = BehaviorSubject<User>();
 
   @override
-  Future<User> getCurrentUser() {
+  Future<User?> getCurrentUser() {
     return _appPreference.getUserCurrentUser();
   }
 

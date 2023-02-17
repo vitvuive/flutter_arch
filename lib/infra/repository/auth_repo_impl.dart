@@ -28,7 +28,7 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<void> facebookLogin() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     _streamStatus.add(AuthStatus.authenticated);
   }
 
@@ -40,7 +40,7 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<void> logout() async {
     await _appPreference.removeUser();
-    await Future.delayed(const Duration(seconds: 2));
+    await Future<void>.delayed(const Duration(seconds: 2));
     _streamStatus.add(AuthStatus.unAuthenticated);
   }
 

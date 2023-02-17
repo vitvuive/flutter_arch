@@ -92,8 +92,11 @@ class RefreshTokenInterceptor extends BaseInterceptor {
     });
   }
 
-  Future<void> _requestWithNewToken(RequestOptions options,
-      ErrorInterceptorHandler handler, String newAccessToken) {
+  Future<void> _requestWithNewToken(
+    RequestOptions options,
+    ErrorInterceptorHandler handler,
+    String newAccessToken,
+  ) {
     _putAccessToken(options.headers, newAccessToken);
 
     return noneAuthAppServerApiClient

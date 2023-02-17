@@ -11,7 +11,9 @@ class DataJsonArrayResponseMapper<T>
   DataListResponse<T> map(dynamic response, Decoder<T>? decoder) {
     return decoder != null && response is Map<String, dynamic>
         ? DataListResponse.fromJson(
-            response, (json) => decoder(json as MapJson))
+            response,
+            (json) => decoder(json as MapJson),
+          )
         : DataListResponse<T>(data: response as List<T>);
   }
 }

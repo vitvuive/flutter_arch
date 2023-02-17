@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:ddd_arch/domain/models/counter_log.dart';
 import 'package:ddd_arch/service/auth_service.dart';
 import 'package:ddd_arch/service/counter_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:ddd_arch/domain/models/counter_log.dart';
 
 @injectable
 class CounterBloc extends Bloc<CounterEvent, CounterState> {

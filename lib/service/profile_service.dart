@@ -7,7 +7,7 @@ class ProfileService {
   const ProfileService(this.userRepo);
   final UserRepo userRepo;
 
-  Future<User> getCurrentUser() async {
+  Future<User?> getCurrentUser() async {
     return userRepo.getCurrentUser();
   }
 }

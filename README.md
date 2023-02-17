@@ -55,6 +55,16 @@ $ open coverage/index.html
 
 ---
 
+## Running build_runner
+
+To run code generator use the following command:
+
+```sh
+$ flutter packages pub run build_runner build --delete-conflicting-outputs
+```
+
+---
+
 ## Working with Translations 🌐
 
 This project relies on [flutter_localizations][flutter_localizations_link] and follows the [official internationalization guide for Flutter][internationalization_link].
