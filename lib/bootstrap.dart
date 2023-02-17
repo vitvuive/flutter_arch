@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:ddd_arch/di/locator.dart';
+import 'package:ddd_arch/shared/network_manager/network_manager.dart';
 import 'package:flutter/widgets.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -31,7 +32,10 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = const AppBlocObserver();
 
   await runZonedGuarded(
-    () async => runApp(await builder()),
+    () async {
+      await getIt<NetworkManager>().init();
+      runApp(await builder());
+    },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }

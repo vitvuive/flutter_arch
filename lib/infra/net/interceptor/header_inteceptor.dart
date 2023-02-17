@@ -1,7 +1,7 @@
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
 import 'package:ddd_arch/shared/app_info/app_info.dart';
-import 'package:dio/src/options.dart';
-import 'package:dio/src/dio_mixin.dart';
+import 'package:dio/dio.dart';
+
 import 'package:injectable/injectable.dart';
 
 @injectable

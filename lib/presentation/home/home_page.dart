@@ -1,4 +1,6 @@
 import 'package:ddd_arch/app/navigation/routes.dart';
+import 'package:ddd_arch/core/resource/colors.dart';
+import 'package:ddd_arch/core/widgets/debounce_widget.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/domain/repository/auth_repo.dart';
 import 'package:ddd_arch/presentation/home/blocs/home_bloc.dart';
@@ -23,15 +25,35 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          if (state.authStatus == AuthStatus.authenticated) {
-            return _AuthenticateView();
-          }
-          return _UnAuthenHomeView();
-        },
-      ),
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: state.authStatus == AuthStatus.authenticated
+                    ? DebounceWidget(
+                        child: const Icon(
+                          Icons.add,
+                          color: AppColors.whiteColor,
+                        ),
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.joke,
+                          );
+                        },
+                      )
+                    : const SizedBox.shrink(),
+              )
+            ],
+          ),
+          body: state.authStatus == AuthStatus.authenticated
+              ? _AuthenticateView()
+              : _UnAuthenHomeView(),
+        );
+      },
     );
   }
 }

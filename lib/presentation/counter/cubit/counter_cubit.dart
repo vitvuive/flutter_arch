@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:ddd_arch/domain/models/counter_log.dart';
+import 'package:ddd_arch/domain/models/counter_log/counter_log.dart';
 import 'package:ddd_arch/service/auth_service.dart';
 import 'package:ddd_arch/service/counter_service.dart';
 import 'package:equatable/equatable.dart';

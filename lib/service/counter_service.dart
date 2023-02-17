@@ -1,4 +1,4 @@
-import 'package:ddd_arch/domain/models/counter_log.dart';
+import 'package:ddd_arch/domain/models/counter_log/counter_log.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 

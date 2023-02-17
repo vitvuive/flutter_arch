@@ -8,25 +8,43 @@ environment:
   flutter: 3.7.1
 
 dependencies:
-  bloc: ^8.1.1
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.2
   flutter_localizations:
     sdk: flutter
+
+  # state management
+  bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
   get_it: ^7.2.0
-  intl: ^0.17.0
-  injectable: 
+  rxdart: ^0.27.7
+
+  # models, entities related
+  equatable: ^2.0.5
+  tuple: ^2.0.1
+
+  # build_runner
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
+  injectable: 
+
+  # storage
   shared_preferences: ^2.0.17
-  rxdart: ^0.27.7
-  equatable: ^2.0.5
-  dio: ^5.0.0
-  dartx: ^1.1.0
-  tuple: ^2.0.1
-  package_info_plus: ^3.0.3
   flutter_secure_storage: ^8.0.0
+
+  # data format
+  intl: ^0.17.0
+  dartx: ^1.1.0
+
+  # http
+  dio: ^5.0.0
+
+  # connectivity
+  connectivity_plus: ^3.0.3
+  internet_connection_checker: ^1.0.0+1
+
+  # others
+  package_info_plus: ^3.0.3
 
 dev_dependencies:
   bloc_test: ^9.1.1

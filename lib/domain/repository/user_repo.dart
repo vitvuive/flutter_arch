@@ -1,4 +1,4 @@
-import 'package:ddd_arch/domain/models/user.dart';
+import 'package:ddd_arch/domain/models/user/user.dart';
 
 abstract class UserRepo {
   Future<User?> getCurrentUser();

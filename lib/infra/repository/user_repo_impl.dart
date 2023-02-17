@@ -1,4 +1,4 @@
-import 'package:ddd_arch/domain/models/user.dart';
+import 'package:ddd_arch/domain/models/user/user.dart';
 import 'package:ddd_arch/domain/repository/user_repo.dart';
 import 'package:ddd_arch/infra/preference/app_preference.dart';
 import 'package:injectable/injectable.dart';

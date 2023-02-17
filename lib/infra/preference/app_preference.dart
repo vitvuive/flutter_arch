@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:ddd_arch/domain/models/map_json.dart';
-import 'package:ddd_arch/domain/models/user.dart';
+import 'package:ddd_arch/domain/models/user/user.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
