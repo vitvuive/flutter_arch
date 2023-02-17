@@ -8,3 +8,5 @@ abstract class SettingEvent extends Equatable {
 }
 
 class RequestSubcribeSettingEvent extends SettingEvent {}
+
+class UpdateThemeEvent extends SettingEvent {}

@@ -11,9 +11,8 @@ import 'package:ddd_arch/di/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/base_bloc_state.dart';
-import 'bloc/base_bloc_event.dart';
 import 'bloc/base_bloc.dart';
+import 'bloc/base_bloc_state.dart';
 
 abstract class BaseBlocStatelessWidget<E extends BaseBlocEvent,
         S extends BaseBlocState, B extends BaseBloc<E, S>>

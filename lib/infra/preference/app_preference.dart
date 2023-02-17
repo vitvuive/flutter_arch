@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:ddd_arch/domain/models/map_json.dart';
 import 'package:ddd_arch/domain/models/user/user.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,6 +14,7 @@ class AppPreference {
   static const String accessTokenKey = 'accessTokenKey';
   static const String userKey = 'userKey';
   static const String refreshTokenKey = 'refreshTokenKey';
+  static const String themeKey = 'themeKey';
 
   String get accessToken => _prefs.getString(accessTokenKey) ?? '';
 
@@ -52,5 +54,13 @@ class AppPreference {
 
   Future<void> removeUser() async {
     await _prefs.remove(userKey);
+  }
+
+  Future<void> setTheme(String theme) async {
+    await _prefs.setString(themeKey, theme);
+  }
+
+  Future<String?> getTheme() async {
+    return _prefs.getString(themeKey);
   }
 }

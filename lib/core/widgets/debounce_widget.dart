@@ -4,9 +4,9 @@ class DebounceWidget extends StatefulWidget {
   const DebounceWidget({
     required this.child,
     required this.onTap,
-    Key? key,
+    super.key,
     this.intervalMs = 500,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final GestureTapCallback onTap;

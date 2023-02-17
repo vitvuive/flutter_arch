@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
+
+@immutable
 class Func0<R> {
-  Func0(this.function);
+  const Func0(this.function);
 
   final R Function() function;
 

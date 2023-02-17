@@ -50,16 +50,16 @@ class ExceptionHandler {
       case AppExceptionType.remoteConfig:
         return _showErrorSnackBar(message: message);
       case AppExceptionType.uncaught:
-        return null;
       case AppExceptionType.validation:
         return _showErrorDialog(message: message);
     }
   }
 
-  void _showErrorSnackBar(
-      {required String message,
-      // Duration duration = DurationConstants.defaultErrorVisibleDuration,
-      Duration duration = const Duration(seconds: 3)}) {
+  void _showErrorSnackBar({
+    required String message,
+    // Duration duration = DurationConstants.defaultErrorVisibleDuration,
+    Duration duration = const Duration(seconds: 3),
+  }) {
     //navigator.showErrorSnackBar(message, duration: duration);
   }
 

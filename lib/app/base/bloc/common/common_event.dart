@@ -10,8 +10,9 @@ abstract class CommonEvent extends BaseBlocEvent {
 
 @freezed
 class ExceptionEmitted extends CommonEvent with _$ExceptionEmitted {
-  const factory ExceptionEmitted(
-      {required AppExceptionWrapper appExceptionWrapper}) = _ExceptionEmitted;
+  const factory ExceptionEmitted({
+    required AppExceptionWrapper appExceptionWrapper,
+  }) = _ExceptionEmitted;
 }
 
 @freezed
