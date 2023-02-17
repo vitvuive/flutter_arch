@@ -29,4 +29,6 @@ class AuthService {
   }
 
   Future<void> logout() => authRepo.logout();
+
+  Future<void> clearDataLogin() async {}
 }

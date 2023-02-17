@@ -1,9 +1,10 @@
-import 'package:ddd_arch/app/navigation/app_navigator.dart';
-import 'package:flutter/widgets.dart';
+import 'package:ddd_arch/core/navigation/app_navigator.dart';
+import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 
-import '../presentation/authen/login/view/login_page.dart';
-import '../presentation/home/home_page.dart';
+// import '../presentation/authen/login/view/login_page.dart';
+// import '../presentation/home/home_page.dart';
 
 @Singleton(as: AppNavigator)
 class NavigationImpl extends AppNavigator {
@@ -26,15 +27,29 @@ class NavigationImpl extends AppNavigator {
   Future<T?> replaceAllNamed<T extends Object>(String name) {
     return currentState.pushNamedAndRemoveUntil(name, (route) => false);
   }
-}
 
-class Routes {
-  static const String login = '/login';
-  static const String home = '/home';
-  static const String register = '/register';
+  @override
+  void showDialog(String message) {
+    // TODO: implement showDialog
+  }
 
-  static Map<String, WidgetBuilder> routes = {
-    home: (context) => const HomePage(),
-    login: (context) => const LoginPage()
-  };
+  @override
+  void showGeneralDialog(String message) {
+    // TODO: implement showGeneralDialog
+  }
+
+  @override
+  void pop<T extends Object>() {
+    return currentState.pop();
+  }
+
+  @override
+  void showSnackBar(String message) {
+    ScaffoldMessenger.of(currentState.context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: const Duration(seconds: 1),
+      ),
+    );
+  }
 }

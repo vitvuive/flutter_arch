@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:ddd_arch/app/navigation/app_navigator.dart';
+import 'package:ddd_arch/core/navigation/app_navigator.dart';
 import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/presentation/authen/login/blocs/login_state.dart';
 import 'package:ddd_arch/service/auth_service.dart';
