@@ -37,7 +37,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   ) async {
     emit(
       state.copyWith(
-        username: event.password,
+        password: event.password,
       ),
     );
   }

@@ -24,6 +24,9 @@ abstract class BaseBlocStatelessWidget<E extends BaseBlocEvent,
   // ignore: strict_raw_type
   List<BlocListener> get listeners => [];
 
+  /// Set initial event call when bloc is created, because create bloc is work of this baseview
+  final List<E> initEvents = [];
+
   late final AppNavigator navigator = getIt<AppNavigator>();
 
   late final ExceptionMessageMapper exceptionMessageMapper =
@@ -46,7 +49,8 @@ abstract class BaseBlocStatelessWidget<E extends BaseBlocEvent,
     // ..appBloc = appBloc
     ..commonBloc = commonBloc
     ..exceptionHandler = exceptionHandler
-    ..exceptionMessageMapper = exceptionMessageMapper;
+    ..exceptionMessageMapper = exceptionMessageMapper
+    ..initEvents = initEvents;
 
   @override
   Widget build(BuildContext context) {

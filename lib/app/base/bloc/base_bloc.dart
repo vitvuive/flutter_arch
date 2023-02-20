@@ -12,7 +12,6 @@ import 'package:ddd_arch/core/exception_handler/exception_handler.dart';
 import 'package:ddd_arch/core/exception_handler/exception_message_mapper.dart';
 import 'package:ddd_arch/core/navigation/app_navigator.dart';
 import 'package:ddd_arch/core/utils/log_utils.dart';
-import 'package:ddd_arch/di/locator.dart';
 
 abstract class BaseBloc<E extends BaseBlocEvent, S extends BaseBlocState>
     extends BaseBlocDelegate<E, S> {
@@ -31,6 +30,15 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
   //late final DisposeBag
 
   late final CommonBloc _commonBloc;
+
+  late final List<E> _initEvents;
+
+  List<E> get initEvents => _initEvents;
+
+  set initEvents(List<E> events) {
+    _initEvents = events;
+    _initEvent();
+  }
 
   set commonBloc(CommonBloc commonBloc) {
     _commonBloc = commonBloc;
@@ -62,6 +70,12 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent,
 
   void hideLoading() {
     commonBloc.add(const LoadingVisibilityEmitted(isLoading: false));
+  }
+
+  void _initEvent() {
+    for (final e in initEvents) {
+      add(e);
+    }
   }
 
   Future<void> runBlocCatching({

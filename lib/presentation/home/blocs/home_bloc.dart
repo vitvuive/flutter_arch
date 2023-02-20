@@ -19,6 +19,8 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
     on<RequestSubcribeState>(_requestSubcribe);
     on<UpdateUserProfile>(_updateUserProfile);
     on<LogoutEvent>(_logoutEvent);
+
+    //add(RequestSubcribeState());
   }
 
   final AuthService authService;

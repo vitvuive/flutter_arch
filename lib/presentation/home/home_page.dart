@@ -15,15 +15,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<HomeBloc>(
-      create: (context) => getIt()..add(RequestSubcribeState()),
-      child: HomeView(),
-    );
+    return HomeView();
   }
 }
 
 class HomeView extends BaseBlocStatelessWidget<HomeEvent, HomeState, HomeBloc> {
   HomeView({super.key});
+
+  @override
+  List<HomeEvent> get initEvents => [RequestSubcribeState()];
 
   @override
   Widget builder(
