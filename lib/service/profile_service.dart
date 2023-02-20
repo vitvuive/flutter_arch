@@ -10,4 +10,9 @@ class ProfileService {
   Future<User?> getCurrentUser() async {
     return userRepo.getCurrentUser();
   }
+
+  Future<bool> isLogin() async {
+    final currentUser = await userRepo.getCurrentUser();
+    return currentUser != null;
+  }
 }

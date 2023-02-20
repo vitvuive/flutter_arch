@@ -1,3 +1,5 @@
+import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
+import 'package:ddd_arch/app/base/bloc/base_bloc_state.dart';
 import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/core/resource/colors.dart';
 import 'package:ddd_arch/core/widgets/debounce_widget.dart';
@@ -15,16 +17,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
       create: (context) => getIt()..add(RequestSubcribeState()),
-      child: const HomeView(),
+      child: HomeView(),
     );
   }
 }
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class HomeView extends BaseBlocStatelessWidget<HomeEvent, HomeState, HomeBloc> {
+  HomeView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget builder(
+    BuildContext context,
+    HomeState state,
+  ) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Scaffold(
@@ -49,9 +54,7 @@ class HomeView extends StatelessWidget {
               )
             ],
           ),
-          body: state.authStatus == AuthStatus.authenticated
-              ? _AuthenticateView()
-              : _UnAuthenHomeView(),
+          body: _AuthenticateView(),
         );
       },
     );
@@ -108,10 +111,19 @@ class _AuthenticateView extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
+              Navigator.pushNamed(
+                context,
+                Routes.counterPage,
+              );
+            },
+            child: const Text('Counter Page'),
+          ),
+          TextButton(
+            onPressed: () {
               context.read<HomeBloc>().add(LogoutEvent());
             },
             child: const Text('Logout'),
-          )
+          ),
         ],
       ),
     );

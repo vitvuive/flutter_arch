@@ -12,6 +12,7 @@ import 'package:ddd_arch/core/exception_handler/exception_handler.dart';
 import 'package:ddd_arch/core/exception_handler/exception_message_mapper.dart';
 import 'package:ddd_arch/core/navigation/app_navigator.dart';
 import 'package:ddd_arch/core/utils/log_utils.dart';
+import 'package:ddd_arch/di/locator.dart';
 
 abstract class BaseBloc<E extends BaseBlocEvent, S extends BaseBlocState>
     extends BaseBlocDelegate<E, S> {

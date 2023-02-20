@@ -6,6 +6,7 @@ import 'package:ddd_arch/core/resource/theme.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/counter/view/counter_page2.dart';
+import 'package:ddd_arch/presentation/splash/view/splash_page.dart';
 // import 'package:ddd_arch/presentation/counter/counter.dart';
 // import 'package:ddd_arch/presentation/home/home_page.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class AppView extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: Locale(state.langCode),
-          home: CounterPage2(),
+          home: SplashPage(),
           // home: const HomePage(),
         );
       },

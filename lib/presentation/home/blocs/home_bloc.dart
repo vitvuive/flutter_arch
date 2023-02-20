@@ -52,6 +52,8 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     await authService.logout();
-    await navigator.replaceAllNamed(Routes.home);
+    await navigator.replaceAllNamed(
+      Routes.login,
+    );
   }
 }

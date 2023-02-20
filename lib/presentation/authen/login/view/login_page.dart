@@ -24,35 +24,40 @@ class _LoginView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TextFormField(
-            decoration: const InputDecoration(
-              label: Text('User name'),
-            ),
-            onChanged: (value) {
-              bloc.add(InputUserNameEvent(value));
-            },
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(
+                  label: Text('User name'),
+                ),
+                onChanged: (value) {
+                  bloc.add(InputUserNameEvent(value));
+                },
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  label: Text('Password'),
+                ),
+                onChanged: (value) {
+                  bloc.add(InputPasswordEvent(value));
+                },
+              ),
+              TextButton(
+                onPressed: () {
+                  bloc.add(SubmitUserNameEvent());
+                },
+                child: const Text('Login'),
+              )
+            ],
           ),
-          const SizedBox(
-            height: 16,
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              label: Text('Password'),
-            ),
-            onChanged: (value) {
-              bloc.add(InputPasswordEvent(value));
-            },
-          ),
-          TextButton(
-            onPressed: () {
-              bloc.add(SubmitUserNameEvent());
-            },
-            child: const Text('Login'),
-          )
-        ],
+        ),
       ),
     );
   }
