@@ -1,0 +1,25 @@
+{
+    "@@locale": "vi",
+    "loginText": "Đăng nhập",
+    "userNameText": "Tên đăng nhập",
+    "passwordText": "Mật khẩu",
+    "currentUserLoginText": "Người dùng hiện tại:",
+    "errorPageText": "Trang hiện lỗi",
+    "counterPageText": "Trang bộ đếm",
+    "logoutText": "Đăng xuất",
+    "parseErrorText": "Lỗi parse",
+    "serverErrorText": "Lỗi server",
+    "unknownErrorText": "Lỗi không xác định",
+    "refreshTokenFailText": "Làm mới token thất bại",
+    "counterAppBarTitle": "Bộ Đếm",
+    "@counterAppBarTitle": {
+        "description": "Chữ hiện nơi tiêu đề ở trang Bộ Đếm"
+    },
+    "currencyAppBarTitle": "Tiền Tệ",
+    "@currencyAppBarTitle": {
+        "description": "Chữ hiện nơi tiêu đề ở trang Tiền Tệ"
+    },
+    "currencyInputTitle": "Nhập số lượng tiền",
+    "currentDateText": "Thời gian hiện tại:",
+    "currentMoneyText": "Số tiền hiện tại:"
+}

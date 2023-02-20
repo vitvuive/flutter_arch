@@ -65,7 +65,7 @@ abstract class BasePageStateDelegate<T extends StatefulWidget,
               previous.appExceptionWrapper != current.appExceptionWrapper &&
               current.appExceptionWrapper != null,
           listener: (context, state) {
-            handleException(state.appExceptionWrapper!);
+            _handleException(state.appExceptionWrapper!);
           },
           child: buildPageListeners(
             child: isAppWidget
@@ -103,18 +103,18 @@ abstract class BasePageStateDelegate<T extends StatefulWidget,
     //disposeBag.dispose();
   }
 
-  void handleException(AppExceptionWrapper appExceptionWrapper) {
+  void _handleException(AppExceptionWrapper appExceptionWrapper) {
     exceptionHandler
         .handleException(
       appExceptionWrapper,
-      handleExceptionMessage(appExceptionWrapper.appException),
+      _handleExceptionMessage(appExceptionWrapper.appException),
     )
         .then((value) {
       appExceptionWrapper.exceptionCompleter?.complete();
     });
   }
 
-  String handleExceptionMessage(AppException appException) {
+  String _handleExceptionMessage(AppException appException) {
     return exceptionMessageMapper.map(appException);
   }
 

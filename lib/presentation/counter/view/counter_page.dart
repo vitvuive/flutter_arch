@@ -1,6 +1,6 @@
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
-import 'package:ddd_arch/app/base/basebloc_statefull_state.dart';
+import 'package:ddd_arch/app/base/basebloc_stateful_state.dart';
 import 'package:ddd_arch/presentation/counter/bloc/counter_event.dart';
 import 'package:ddd_arch/presentation/counter/counter.dart';
 import 'package:flutter/material.dart';

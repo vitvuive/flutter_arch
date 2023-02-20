@@ -5,6 +5,7 @@ import 'package:ddd_arch/core/resource/colors.dart';
 import 'package:ddd_arch/core/widgets/debounce_widget.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/domain/repository/auth_repo.dart';
+import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/home/blocs/home_bloc.dart';
 import 'package:ddd_arch/presentation/home/blocs/home_state.dart';
 import 'package:flutter/material.dart';
@@ -87,18 +88,22 @@ class _AuthenticateView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentUser = context.select((HomeBloc bloc) => bloc.state.user);
+    final l10n = context.l10n;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextButton(
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                Routes.login,
-              );
-            },
-            child: Text('Current user login: ${currentUser?.name ?? ''}'),
+            // onPressed: () {
+            //   Navigator.pushNamed(
+            //     context,
+            //     Routes.login,
+            //   );
+            // },
+            onPressed: () {},
+            child: Text(
+              '${l10n.currentUserLoginText} ${currentUser?.name ?? ''}',
+            ),
           ),
           TextButton(
             onPressed: () {
@@ -107,7 +112,7 @@ class _AuthenticateView extends StatelessWidget {
                 Routes.errorPage,
               );
             },
-            child: const Text('Error Page'),
+            child: Text(l10n.errorPageText),
           ),
           TextButton(
             onPressed: () {
@@ -116,13 +121,13 @@ class _AuthenticateView extends StatelessWidget {
                 Routes.counterPage,
               );
             },
-            child: const Text('Counter Page'),
+            child: Text(l10n.counterPageText),
           ),
           TextButton(
             onPressed: () {
               context.read<HomeBloc>().add(LogoutEvent());
             },
-            child: const Text('Logout'),
+            child: Text(l10n.logoutText),
           ),
         ],
       ),

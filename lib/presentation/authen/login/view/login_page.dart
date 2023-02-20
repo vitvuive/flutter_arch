@@ -1,4 +1,5 @@
 import 'package:ddd_arch/di/locator.dart';
+import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/authen/login/blocs/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,11 +19,12 @@ class LoginPage extends StatelessWidget {
 class _LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final bloc = context.read<LoginBloc>();
     //final currentState = context.select((LoginBloc bloc) => bloc.state);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text(l10n.loginText),
       ),
       body: Center(
         child: Padding(
@@ -31,8 +33,8 @@ class _LoginView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextFormField(
-                decoration: const InputDecoration(
-                  label: Text('User name'),
+                decoration: InputDecoration(
+                  label: Text(l10n.userNameText),
                 ),
                 onChanged: (value) {
                   bloc.add(InputUserNameEvent(value));
@@ -42,8 +44,8 @@ class _LoginView extends StatelessWidget {
                 height: 16,
               ),
               TextFormField(
-                decoration: const InputDecoration(
-                  label: Text('Password'),
+                decoration: InputDecoration(
+                  label: Text(l10n.passwordText),
                 ),
                 onChanged: (value) {
                   bloc.add(InputPasswordEvent(value));
@@ -53,7 +55,7 @@ class _LoginView extends StatelessWidget {
                 onPressed: () {
                   bloc.add(SubmitUserNameEvent());
                 },
-                child: const Text('Login'),
+                child: Text(l10n.loginText),
               )
             ],
           ),

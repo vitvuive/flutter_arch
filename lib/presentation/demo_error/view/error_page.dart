@@ -1,4 +1,5 @@
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
+import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/demo_error/bloc/error_bloc.dart';
 import 'package:ddd_arch/presentation/demo_error/bloc/error_event.dart';
 import 'package:ddd_arch/presentation/demo_error/bloc/error_state.dart';
@@ -11,6 +12,7 @@ class ErrorPage
 
   @override
   Widget builder(BuildContext context, ErrorState state) {
+    final l10n = context.l10n;
     return Scaffold(
       body: Center(
         child: Column(
@@ -20,25 +22,25 @@ class ErrorPage
               onPressed: () {
                 context.read<ErrorBloc>().add(ShowParseErrorEvent());
               },
-              child: const Text('Parse error'),
+              child: Text(l10n.parseErrorText),
             ),
             TextButton(
               onPressed: () {
                 context.read<ErrorBloc>().add(ShowServerErrorEvent());
               },
-              child: const Text('Server error'),
+              child: Text(l10n.serverErrorText),
             ),
             TextButton(
               onPressed: () {
                 context.read<ErrorBloc>().add(ShowUnknownEvent());
               },
-              child: const Text('Unknown error'),
+              child: Text(l10n.unknownErrorText),
             ),
             TextButton(
               onPressed: () {
                 context.read<ErrorBloc>().add(RefreshTokenFail());
               },
-              child: const Text('Refresh token fail'),
+              child: Text(l10n.refreshTokenFailText),
             )
           ],
         ),

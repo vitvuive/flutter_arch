@@ -1,7 +1,25 @@
 {
     "@@locale": "en",
+    "loginText": "Login",
+    "userNameText": "User Name",
+    "passwordText": "Password",
+    "currentUserLoginText": "Current user login:",
+    "errorPageText": "Error Page",
+    "counterPageText": "Counter Page",
+    "logoutText": "Logout",
+    "parseErrorText": "Parse error",
+    "serverErrorText": "Server error",
+    "unknownErrorText": "Unknown error",
+    "refreshTokenFailText": "Refresh token fail",
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
-    }
+    },
+    "currencyAppBarTitle": "Currency",
+    "@currencyAppBarTitle": {
+        "description": "Text shown in the AppBar of the Currency Page"
+    },
+    "currencyInputTitle": "Input Currency",
+    "currentDateText": "Current Date:",
+    "currentMoneyText": "Current Money:"
 }

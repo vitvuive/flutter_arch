@@ -1,4 +1,5 @@
 include: package:very_good_analysis/analysis_options.4.0.0.yaml
+# include: package:flutter_lints/flutter.yaml
 linter:
   rules:
     public_member_api_docs: false
@@ -6,3 +7,4 @@ linter:
     sort_pub_dependencies: false
     avoid_bool_literals_in_conditional_expressions: false
     prefer_if_elements_to_conditional_expressions: false
+    cascade_invocations: false

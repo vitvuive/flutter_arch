@@ -15,6 +15,7 @@ class AppPreference {
   static const String userKey = 'userKey';
   static const String refreshTokenKey = 'refreshTokenKey';
   static const String themeKey = 'themeKey';
+  static const String langKey = 'langKey';
 
   String get accessToken => _prefs.getString(accessTokenKey) ?? '';
 
@@ -62,5 +63,13 @@ class AppPreference {
 
   Future<String?> getTheme() async {
     return _prefs.getString(themeKey);
+  }
+
+  Future<void> setLang(String lang) async {
+    await _prefs.setString(langKey, lang);
+  }
+
+  Future<String?> getLang() async {
+    return _prefs.getString(langKey);
   }
 }

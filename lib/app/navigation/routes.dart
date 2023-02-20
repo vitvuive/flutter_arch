@@ -1,5 +1,6 @@
 import 'package:ddd_arch/presentation/authen/login/view/login_page.dart';
 import 'package:ddd_arch/presentation/counter/view/counter_page2.dart';
+import 'package:ddd_arch/presentation/currency/view/currency_page.dart';
 import 'package:ddd_arch/presentation/demo_error/view/error_page.dart';
 import 'package:ddd_arch/presentation/home/home_page.dart';
 import 'package:ddd_arch/presentation/joke/joke_page.dart';
@@ -14,6 +15,7 @@ class Routes {
   static const String register = '/register';
   static const String errorPage = '/errorPage';
   static const String counterPage = '/counterPage';
+  static const String currency = '/currency';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => const HomePage(),
@@ -21,5 +23,6 @@ class Routes {
     joke: (context) => JokePage(),
     errorPage: (context) => ErrorPage(),
     counterPage: (context) => CounterPage2(),
+    currency: (context) => CurrencyPage(),
   };
 }
