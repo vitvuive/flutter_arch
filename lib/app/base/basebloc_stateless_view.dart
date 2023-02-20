@@ -21,6 +21,7 @@ abstract class BaseBlocStatelessWidget<E extends BaseBlocEvent,
 
   Widget builder(BuildContext context, S state);
 
+  // ignore: strict_raw_type
   List<BlocListener> get listeners => [];
 
   late final AppNavigator navigator = getIt<AppNavigator>();
@@ -54,13 +55,18 @@ abstract class BaseBlocStatelessWidget<E extends BaseBlocEvent,
         BlocProvider(create: (_) => bloc),
         BlocProvider(create: (_) => commonBloc)
       ],
-      child: BlocListener<CommonBloc, CommonState>(
-        listenWhen: (previous, current) =>
-            previous.appExceptionWrapper != current.appExceptionWrapper &&
-            current.appExceptionWrapper != null,
-        listener: (context, state) {
-          handleException(state.appExceptionWrapper!);
-        },
+      child: MultiBlocListener(
+        listeners: [
+          ...listeners,
+          BlocListener<CommonBloc, CommonState>(
+            listenWhen: (previous, current) =>
+                previous.appExceptionWrapper != current.appExceptionWrapper &&
+                current.appExceptionWrapper != null,
+            listener: (context, state) {
+              handleException(state.appExceptionWrapper!);
+            },
+          ),
+        ],
         child: Stack(
           children: [
             BlocBuilder<B, S>(
@@ -100,7 +106,9 @@ abstract class BaseBlocStatelessWidget<E extends BaseBlocEvent,
   }
 
   @override
-  void onRefreshTokenFailed() {}
+  void onRefreshTokenFailed() {
+    commonBloc.add(const ForceLogout());
+  }
 }
 
 class RefreshTokenFailListener implements ExceptionHandlerListener {

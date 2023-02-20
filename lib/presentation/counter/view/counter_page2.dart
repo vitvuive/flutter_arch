@@ -1,4 +1,3 @@
-import 'package:bloc/src/bloc.dart';
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
 import 'package:ddd_arch/app/blocs/setting_bloc/setting_bloc.dart';
 import 'package:ddd_arch/core/widgets/debounce_widget.dart';
@@ -8,8 +7,6 @@ import 'package:ddd_arch/presentation/counter/bloc/counter_state.dart';
 import 'package:ddd_arch/presentation/counter/counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc/src/bloc_listener.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CounterPage2
     extends BaseBlocStatelessWidget<CounterEvent, CounterState, CounterBloc> {

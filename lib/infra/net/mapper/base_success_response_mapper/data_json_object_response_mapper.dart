@@ -10,8 +10,8 @@ class DataJsonObjectResponseMapper<T>
   @override
   // ignore: avoid-dynamic
   DataResponse<T> map(dynamic response, Decoder<T>? decoder) {
-    return decoder != null && response is Map<String, dynamic>
-        ? DataResponse.fromJson(response, (json) => decoder(json as MapJson))
+    return decoder != null && response is MapJson
+        ? DataResponse<T>.fromJson(response, (json) => decoder(json as MapJson))
         : DataResponse<T>(data: response as T);
   }
 }

@@ -1,6 +1,6 @@
 part of 'joke_bloc.dart';
 
-abstract class JokeState extends Equatable {
+abstract class JokeState extends BaseBlocState {
   const JokeState({this.jokeList, this.joke});
   final JokeModel? joke;
   final JokeListModel? jokeList;
@@ -28,6 +28,6 @@ class JokeInitial extends JokeState {
         joke: joke ?? this.joke, jokeList: jokeList ?? this.jokeList);
   }
 
-  @override
-  List<Object?> get props => [joke];
+  // @override
+  // List<Object?> get props => [joke];
 }

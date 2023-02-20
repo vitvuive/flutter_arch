@@ -1,6 +1,7 @@
 import 'package:ddd_arch/infra/net/mapper/base_success_response_mapper/data_json_array_response_mapper.dart';
 import 'package:ddd_arch/infra/net/mapper/base_success_response_mapper/data_json_object_response_mapper.dart';
 import 'package:ddd_arch/infra/net/mapper/base_success_response_mapper/json_array_response_mapper.dart';
+import 'package:ddd_arch/infra/net/mapper/base_success_response_mapper/json_object_response_mapper.dart';
 import 'package:ddd_arch/shared/model/enum/shared_enum.dart';
 import 'package:ddd_arch/shared/model/typedef.dart';
 
@@ -16,8 +17,7 @@ abstract class BaseSuccessResponseMapper<I, O> {
         return DataJsonArrayResponseMapper<I>()
             as BaseSuccessResponseMapper<I, O>;
       case SuccessResponseMapperType.jsonObject:
-        return DataJsonObjectResponseMapper<I>()
-            as BaseSuccessResponseMapper<I, O>;
+        return JsonObjectResponseMapper<I>() as BaseSuccessResponseMapper<I, O>;
       case SuccessResponseMapperType.jsonArray:
         return JsonArrayResponseMapper<I>() as BaseSuccessResponseMapper<I, O>;
     }

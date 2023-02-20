@@ -1,21 +1,20 @@
 import 'package:bloc/bloc.dart';
-import 'package:ddd_arch/core/navigation/app_navigator.dart';
+import 'package:ddd_arch/app/base/bloc/base_bloc.dart';
+import 'package:ddd_arch/app/base/bloc/base_bloc_event.dart';
 import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/domain/repository/auth_repo.dart';
 import 'package:ddd_arch/presentation/home/blocs/home_state.dart';
 import 'package:ddd_arch/service/auth_service.dart';
 import 'package:ddd_arch/service/profile_service.dart';
-import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
 part 'home_event.dart';
 
 @injectable
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
+class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   HomeBloc(
     this.authService,
     this.profileService,
-    this.navigator,
   ) : super(const HomeState()) {
     on<RequestSubcribeState>(_requestSubcribe);
     on<UpdateUserProfile>(_updateUserProfile);
@@ -24,7 +23,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   final AuthService authService;
   final ProfileService profileService;
-  final AppNavigator navigator;
 
   Future<void> _requestSubcribe(
     RequestSubcribeState event,

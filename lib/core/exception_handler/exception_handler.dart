@@ -1,6 +1,7 @@
 import 'package:ddd_arch/core/exception/base/app_exception.dart';
 import 'package:ddd_arch/core/exception/base/app_exception_wrapper.dart';
 import 'package:ddd_arch/core/helper/function.dart';
+import 'package:ddd_arch/core/navigation/app_popup_info.dart';
 
 import '../exception/remote/remote_exception.dart';
 import '../navigation/app_navigator.dart';
@@ -32,6 +33,9 @@ class ExceptionHandler {
             );
             break;
           case RemoteExceptionKind.noInternet:
+            return _showErrorSnackBar(
+              message: navigator.lang.counterAppBarTitle,
+            );
           case RemoteExceptionKind.timeout:
             await _showErrorDialogWithRetry(
               message: message,
@@ -41,8 +45,25 @@ class ExceptionHandler {
               }),
             );
             break;
-          default:
-            await _showErrorDialog(message: message);
+          case RemoteExceptionKind.network:
+            await _showErrorDialog(
+              message: message,
+              onPressed: Func0(navigator.pop),
+            );
+            break;
+          case RemoteExceptionKind.serverDefined:
+          case RemoteExceptionKind.serverUndefined:
+          case RemoteExceptionKind.cancellation:
+          case RemoteExceptionKind.unknown:
+            {
+              await _showErrorDialog(
+                message: message,
+                onPressed: Func0(() async {
+                  navigator.pop();
+                }),
+              );
+              break;
+            }
         }
         break;
       case AppExceptionType.parse:
@@ -50,6 +71,7 @@ class ExceptionHandler {
       case AppExceptionType.remoteConfig:
         return _showErrorSnackBar(message: message);
       case AppExceptionType.uncaught:
+        return _showErrorSnackBar(message: message);
       case AppExceptionType.validation:
         return _showErrorDialog(message: message);
     }
@@ -57,10 +79,8 @@ class ExceptionHandler {
 
   void _showErrorSnackBar({
     required String message,
-    // Duration duration = DurationConstants.defaultErrorVisibleDuration,
-    Duration duration = const Duration(seconds: 3),
   }) {
-    //navigator.showErrorSnackBar(message, duration: duration);
+    navigator.showErrorSnackBar(message);
   }
 
   Future<void> _showErrorDialog({
@@ -68,16 +88,18 @@ class ExceptionHandler {
     Func0<void>? onPressed,
     bool isRefreshTokenFailed = false,
   }) async {
-    // await navigator
-    //     .showDialog(AppPopupInfo.confirmDialog(
-    //   message: message,
-    //   onPressed: onPressed,
-    // ))
-    //     .then((value) {
-    //   if (isRefreshTokenFailed) {
-    //     listener.onRefreshTokenFailed();
-    //   }
-    // });
+    await navigator
+        .showDialog(
+      AppPopupInfo.confirmDialog(
+        message: message,
+        onPressed: onPressed,
+      ),
+    )
+        .then((value) {
+      if (isRefreshTokenFailed) {
+        listener.onRefreshTokenFailed();
+      }
+    });
   }
 
   Future<void> _showErrorDialogWithRetry({

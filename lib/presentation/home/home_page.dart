@@ -99,6 +99,15 @@ class _AuthenticateView extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
+              Navigator.pushNamed(
+                context,
+                Routes.errorPage,
+              );
+            },
+            child: const Text('Error Page'),
+          ),
+          TextButton(
+            onPressed: () {
               context.read<HomeBloc>().add(LogoutEvent());
             },
             child: const Text('Logout'),

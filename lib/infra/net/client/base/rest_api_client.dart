@@ -2,7 +2,9 @@ import 'package:dartx/dartx.dart';
 import 'package:ddd_arch/core/utils/log_utils.dart';
 import 'package:ddd_arch/infra/net/client/base/dio_builder.dart';
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
+import 'package:ddd_arch/infra/net/mapper/base/base_error_response_mapper.dart';
 import 'package:ddd_arch/infra/net/mapper/base/base_success_reponse_mapper.dart';
+import 'package:ddd_arch/infra/net/mapper/exception_mapper/dio_exception_mapper.dart';
 import 'package:ddd_arch/shared/model/enum/shared_enum.dart';
 import 'package:ddd_arch/shared/model/typedef.dart';
 import 'package:ddd_arch/shared/server/server_timeout_contants.dart';
@@ -17,6 +19,7 @@ class RestApiClient {
     this.sendTimeoutInMs = ServerTimeoutConstants.sendTimeoutInMs,
     this.receiveTimoutInMs = ServerTimeoutConstants.receiveTimeoutInMs,
     this.successResponseMapperType = SuccessResponseMapperType.dataJsonObject,
+    this.errorResponseMapperType = ErrorResponseMapperType.jsonObject,
     this.interceptors = const [],
   }) : _dio = DioBuilder.createDio(
           options: BaseOptions(
@@ -40,6 +43,7 @@ class RestApiClient {
   }
 
   final SuccessResponseMapperType successResponseMapperType;
+  final ErrorResponseMapperType errorResponseMapperType;
   final String baseUrl;
   final int? connectTimeoutInMs;
   final int? sendTimeoutInMs;
@@ -56,7 +60,7 @@ class RestApiClient {
     Decoder<D>? decoder,
     SuccessResponseMapperType? successResponseMapperType,
     ErrorResponseMapperType? errorResponseMapperType,
-    //BaseErrorResponseMapper? errorResponseMapper,
+    BaseErrorResponseMapper? errorResponseMapper,
     Map<String, dynamic>? headers,
     String? contentType,
     ResponseType? responseType,
@@ -85,8 +89,12 @@ class RestApiClient {
         successResponseMapperType ?? this.successResponseMapperType,
       ).map(response.data, decoder);
     } catch (error) {
-      Log.e(error);
-      throw Exception('request error $path');
+      throw DioExceptionMapper(
+        errorResponseMapper ??
+            BaseErrorResponseMapper.fromType(
+              errorResponseMapperType ?? this.errorResponseMapperType,
+            ),
+      ).map(error);
     }
   }
 

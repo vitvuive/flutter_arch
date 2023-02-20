@@ -4,7 +4,7 @@ import 'package:ddd_arch/core/exception/base/app_exception.dart';
 import 'server_error.dart';
 
 class RemoteException extends AppException {
-  RemoteException({
+  const RemoteException({
     required this.kind,
     this.httpErrorCode,
     this.serverError,
