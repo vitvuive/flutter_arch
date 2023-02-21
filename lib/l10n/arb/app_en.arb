@@ -23,5 +23,6 @@
     },
     "currencyInputTitle": "Input Currency",
     "currentDateText": "Current Date:",
-    "currentMoneyText": "Current Money:"
+    "currentMoneyText": "Current Money:", 
+    "articleText": "Article" 
 }

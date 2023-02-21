@@ -1,13 +1,9 @@
 import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:flutter/material.dart' as m;
-// import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 
 import 'navigation/base/base_popup_info_mapper.dart';
-
-// import '../presentation/authen/login/view/login_page.dart';
-// import '../presentation/home/home_page.dart';
 
 @Singleton(as: AppNavigator)
 class NavigationImpl extends AppNavigator {

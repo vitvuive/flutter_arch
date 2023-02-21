@@ -13,7 +13,7 @@ class RefreshTokenApi {
     String refreshToken,
   ) async {
     return DataResponse(
-      data: const RefreshTokenData(accessToken: '123123123123'),
+      result: const RefreshTokenData(accessToken: '123123123123'),
     );
   }
 }

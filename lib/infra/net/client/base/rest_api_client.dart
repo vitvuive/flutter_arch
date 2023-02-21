@@ -1,4 +1,5 @@
 import 'package:dartx/dartx.dart';
+import 'package:ddd_arch/infra/net/client/base/api_default_setting.dart';
 import 'package:ddd_arch/infra/net/client/base/dio_builder.dart';
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
 import 'package:ddd_arch/infra/net/mapper/base/base_error_response_mapper.dart';
@@ -17,7 +18,7 @@ class RestApiClient {
     this.connectTimeoutInMs = ServerTimeoutConstants.connectTimeoutInMs,
     this.sendTimeoutInMs = ServerTimeoutConstants.sendTimeoutInMs,
     this.receiveTimoutInMs = ServerTimeoutConstants.receiveTimeoutInMs,
-    this.successResponseMapperType = SuccessResponseMapperType.dataJsonObject,
+    this.successResponseMapperType = SuccessResponseMapperType.jsonObject,
     this.errorResponseMapperType = ErrorResponseMapperType.jsonObject,
     this.interceptors = const [],
   }) : _dio = DioBuilder.createDio(
@@ -34,7 +35,10 @@ class RestApiClient {
             ),
           ),
         ) {
-    final sortedInterceptors = [...interceptors].sortedByDescending((element) {
+    final sortedInterceptors = [
+      ...interceptors,
+      ...ApiClientDefaultSetting.requiredInterceptors(_dio)
+    ].sortedByDescending((element) {
       return element is BaseInterceptor ? element.priority : -1;
     });
 
@@ -74,7 +78,7 @@ class RestApiClient {
         body: body,
         options: Options(
           headers: headers,
-          contentType: contentType,
+          contentType: contentType ?? 'application/json',
           responseType: responseType,
           sendTimeout: sendTimeoutInMs != null
               ? Duration(milliseconds: sendTimeoutInMs)

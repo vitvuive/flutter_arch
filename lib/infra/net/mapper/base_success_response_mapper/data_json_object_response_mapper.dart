@@ -12,6 +12,6 @@ class DataJsonObjectResponseMapper<T>
   DataResponse<T> map(dynamic response, Decoder<T>? decoder) {
     return decoder != null && response is MapJson
         ? DataResponse<T>.fromJson(response, (json) => decoder(json as MapJson))
-        : DataResponse<T>(data: response as T);
+        : DataResponse<T>(result: response as T);
   }
 }

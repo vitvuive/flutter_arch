@@ -66,10 +66,10 @@ class RefreshTokenInterceptor extends BaseInterceptor {
         await refreshTokenApi.refreshToken(refreshToken);
     await Future.wait(
       [
-        appPreference.saveToken(refreshTokenReponse.data?.accessToken ?? ''),
+        appPreference.saveToken(refreshTokenReponse.result?.accessToken ?? ''),
       ],
     );
-    return refreshTokenReponse.data?.accessToken ?? '';
+    return refreshTokenReponse.result?.accessToken ?? '';
   }
 
   Future<void> _onRefreshTokenSuccess(String newToken) async {

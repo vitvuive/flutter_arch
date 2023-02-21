@@ -12,9 +12,9 @@ abstract class BaseErrorResponseMapper<T>
   factory BaseErrorResponseMapper.fromType(ErrorResponseMapperType type) {
     switch (type) {
       case ErrorResponseMapperType.jsonArray:
-        return JsonObjectErrorResponseMapper() as BaseErrorResponseMapper<T>;
-      case ErrorResponseMapperType.jsonObject:
         return JsonArrayErrorResponseMapper() as BaseErrorResponseMapper<T>;
+      case ErrorResponseMapperType.jsonObject:
+        return JsonObjectErrorResponseMapper() as BaseErrorResponseMapper<T>;
     }
   }
 }

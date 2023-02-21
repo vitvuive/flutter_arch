@@ -14,6 +14,6 @@ class DataJsonArrayResponseMapper<T>
             response,
             (json) => decoder(json as MapJson),
           )
-        : DataListResponse<T>(data: response as List<T>);
+        : DataListResponse<T>(result: response as List<T>);
   }
 }

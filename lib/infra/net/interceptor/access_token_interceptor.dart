@@ -21,7 +21,7 @@ class AccessTokenInterceptor extends BaseInterceptor {
     final token = appPreference.accessToken;
 
     if (token.isNotEmpty) {
-      options.headers['basicAuthorization'] = 'Bearer $token';
+      options.headers['Authorization'] = 'Bearer $token';
     }
     handler.next(options);
   }

@@ -6,10 +6,7 @@ import 'package:ddd_arch/app/navigation_impl.dart';
 import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
-import 'package:ddd_arch/presentation/counter/view/counter_page2.dart';
 import 'package:ddd_arch/presentation/splash/view/splash_page.dart';
-// import 'package:ddd_arch/presentation/counter/counter.dart';
-// import 'package:ddd_arch/presentation/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

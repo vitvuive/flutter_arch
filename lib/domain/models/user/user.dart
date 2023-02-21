@@ -8,7 +8,8 @@ part 'user.g.dart';
 class User with _$User {
   const factory User({
     required String name,
-    required String birthDay,
+    required String id,
+    @Default('') String email,
   }) = _User;
 
   factory User.fromJson(MapJson json) => _$UserFromJson(json);

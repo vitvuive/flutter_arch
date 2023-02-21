@@ -23,5 +23,6 @@
     },
     "currencyInputTitle": "Nhập số lượng tiền",
     "currentDateText": "Thời gian hiện tại:",
-    "currentMoneyText": "Số tiền hiện tại:"
+    "currentMoneyText": "Số tiền hiện tại:", 
+    "articleText": "Article" 
 }

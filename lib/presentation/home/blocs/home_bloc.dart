@@ -18,7 +18,8 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   ) : super(const HomeState()) {
     on<RequestSubcribeState>(_requestSubcribe);
     on<UpdateUserProfile>(_updateUserProfile);
-    on<LogoutEvent>(_logoutEvent);
+
+    ///on<LogoutEvent>(_logoutEvent);
 
     //add(RequestSubcribeState());
   }
@@ -49,13 +50,17 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
     }
   }
 
-  Future<void> _logoutEvent(
-    LogoutEvent event,
-    Emitter<HomeState> emit,
-  ) async {
-    await authService.logout();
-    await navigator.replaceAllNamed(
-      Routes.login,
-    );
-  }
+  // Future<void> _logoutEvent(
+  //   LogoutEvent event,
+  //   Emitter<HomeState> emit,
+  // ) async {
+  //   await runBlocCatching(
+  //     action: () async {
+  //       await authService.logout();
+  //       await navigator.replaceAllNamed(
+  //         Routes.login,
+  //       );
+  //     },
+  //   );
+  // }
 }

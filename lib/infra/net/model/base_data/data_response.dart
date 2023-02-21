@@ -1,13 +1,14 @@
 import 'package:ddd_arch/domain/models/map_json.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
+// import 'package:freezed_annotation/freezed_annotation.dart';
 
-//part 'data_response.freezed.dart';
+// part 'data_response.freezed.dart';
 part 'data_response.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
 class DataResponse<T> {
   DataResponse({
-    @JsonKey(name: 'data') this.data,
+    @JsonKey(name: 'result') this.result,
   });
 
   factory DataResponse.fromJson(
@@ -16,13 +17,13 @@ class DataResponse<T> {
   ) =>
       _$DataResponseFromJson(json, fromJsonT);
 
-  final T? data;
+  final T? result;
 }
 
 @JsonSerializable(genericArgumentFactories: true)
 class DataListResponse<T> {
   DataListResponse({
-    @JsonKey(name: 'data') this.data,
+    @JsonKey(name: 'result') this.result,
   });
 
   factory DataListResponse.fromJson(
@@ -31,5 +32,5 @@ class DataListResponse<T> {
   ) =>
       _$DataListResponseFromJson(json, fromJsonT);
 
-  final List<T>? data;
+  final List<T>? result;
 }

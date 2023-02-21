@@ -1,5 +1,7 @@
 import 'package:ddd_arch/core/core.dart';
+import 'package:ddd_arch/presentation/articles/view/article_page.dart';
 import 'package:ddd_arch/presentation/authen/login/view/login_page.dart';
+import 'package:ddd_arch/presentation/authen/register/register.dart';
 import 'package:ddd_arch/presentation/counter/view/counter_page2.dart';
 import 'package:ddd_arch/presentation/currency/view/currency_page.dart';
 import 'package:ddd_arch/presentation/demo_error/view/error_page.dart';
@@ -19,6 +21,7 @@ class Routes {
   static const String errorPage = '/errorPage';
   static const String counterPage = '/counterPage';
   static const String currency = '/currency';
+  static const String articles = '/articles';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => const HomePage(),
@@ -27,6 +30,8 @@ class Routes {
     errorPage: (context) => ErrorPage(),
     counterPage: (context) => CounterPage2(),
     currency: (context) => CurrencyPage(),
+    register: (context) => RegisterPage(),
+    articles: (context) => ArticlePage(),
   };
 
   static Route<dynamic> getRouteGenerate(RouteSettings settings) {

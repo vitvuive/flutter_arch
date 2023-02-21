@@ -11,7 +11,7 @@ class AuthService {
 
   Stream<AuthStatus> get streamStatus => authRepo.streamAuthStatus();
 
-  Future<void> login({
+  Future<bool> login({
     required String username,
     required String password,
   }) =>
@@ -31,4 +31,15 @@ class AuthService {
   Future<void> logout() => authRepo.logout();
 
   Future<void> clearDataLogin() async {}
+
+  Future<bool> register({
+    required String email,
+    required String password,
+  }) async {
+    final registerResult = await authRepo.register(
+      username: email,
+      password: password,
+    );
+    return registerResult;
+  }
 }

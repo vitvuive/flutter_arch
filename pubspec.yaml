@@ -49,6 +49,7 @@ dependencies:
 
   # others
   package_info_plus: ^3.0.3
+  reactive_forms: ^14.1.0
 
 dev_dependencies:
   bloc_test: ^9.1.1

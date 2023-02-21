@@ -1,7 +1,7 @@
 enum AuthStatus { unknow, authenticated, unAuthenticated }
 
 abstract class AuthRepo {
-  Future<void> userNamePasswordLogin({
+  Future<bool> userNamePasswordLogin({
     required String userName,
     required String password,
   });
@@ -15,4 +15,9 @@ abstract class AuthRepo {
   Future<void> logout();
 
   Stream<AuthStatus> streamAuthStatus();
+
+  Future<bool> register({
+    required String username,
+    required String password,
+  });
 }
