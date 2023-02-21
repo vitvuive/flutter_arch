@@ -88,7 +88,9 @@ abstract class BaseBlocStatelessWidget<E extends BaseBlocEvent,
   }
 
   Widget buildPageLoading() => const Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(
+          color: AppColors.tertiaryColorDark,
+        ),
       );
 
   void handleException(AppExceptionWrapper appExceptionWrapper) {

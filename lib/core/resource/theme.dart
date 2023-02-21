@@ -24,41 +24,55 @@ ThemeData lightTheme = ThemeData.light().copyWith(
       foregroundColor: AppColors.onTertiaryColorLight,
     ),
   ),
+  inputDecorationTheme: const InputDecorationTheme(
+    labelStyle: TextStyle(color: AppColors.onPrimaryColorDark),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.onPrimaryColorDark,
+      ),
+    ),
+  ),
+  textSelectionTheme: const TextSelectionThemeData(
+    selectionColor: AppColors.primaryColorDark,
+    cursorColor: AppColors.onPrimaryColorDark,
+    selectionHandleColor: AppColors.transparent,
+  ),
   colorScheme: colorSchemeLight,
 );
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
-    useMaterial3: true,
-    brightness: Brightness.dark,
-    primaryColor: AppColors.primaryColorDark,
-    scaffoldBackgroundColor: AppColors.backgroundColorDark,
-    appBarTheme: AppBarTheme(
-      color: AppColors.outlineColorLight,
-      iconTheme: const IconThemeData(color: AppColors.iconColorDark),
-      toolbarTextStyle: _darkTextTheme.bodyMedium,
-      titleTextStyle: _darkTextTheme.titleLarge,
+  useMaterial3: true,
+  brightness: Brightness.dark,
+  primaryColor: AppColors.primaryColorDark,
+  scaffoldBackgroundColor: AppColors.backgroundColorDark,
+  appBarTheme: AppBarTheme(
+    color: AppColors.outlineColorLight,
+    iconTheme: const IconThemeData(color: AppColors.iconColorDark),
+    toolbarTextStyle: _darkTextTheme.bodyMedium,
+    titleTextStyle: _darkTextTheme.titleLarge,
+  ),
+  iconTheme: const IconThemeData(
+    color: AppColors.iconColorDark,
+  ),
+  textTheme: _darkTextTheme,
+  dividerTheme: const DividerThemeData(
+    color: AppColors.greyColor,
+  ),
+  inputDecorationTheme: const InputDecorationTheme(
+    labelStyle: TextStyle(color: AppColors.onPrimaryColorLight),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.onPrimaryColorLight,
+      ),
     ),
-    iconTheme: const IconThemeData(
-      color: AppColors.iconColorDark,
-    ),
-    textTheme: _darkTextTheme,
-    dividerTheme: const DividerThemeData(
-      color: AppColors.greyColor,
-    ),
-    // colorScheme: const ColorScheme(
-    //   brightness: Brightness.dark,
-    //   primary: Colors.redAccent,
-    //   onPrimary: Colors.white,
-    //   secondary: Colors.orange,
-    //   onSecondary: Colors.white,
-    //   error: Colors.red,
-    //   onError: Colors.white,
-    //   background: Colors.black,
-    //   onBackground: Colors.white,
-    //   surface: Colors.green,
-    //   onSurface: Colors.greenAccent,
-    // ),
-    colorScheme: colorSchemeDark);
+  ),
+  textSelectionTheme: const TextSelectionThemeData(
+    selectionColor: AppColors.primaryColorLight,
+    cursorColor: AppColors.onPrimaryColorLight,
+    selectionHandleColor: AppColors.transparent,
+  ),
+  colorScheme: colorSchemeDark,
+);
 
 const ColorScheme colorSchemeLight = ColorScheme(
   brightness: Brightness.dark,

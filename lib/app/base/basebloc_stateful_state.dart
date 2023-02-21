@@ -88,7 +88,9 @@ abstract class BasePageStateDelegate<T extends StatefulWidget,
   Widget buildPageListeners({required Widget child}) => child;
 
   Widget buildPageLoading() => const Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(
+          color: AppColors.tertiaryColorDark,
+        ),
       );
 
   Widget buildPage(BuildContext context);

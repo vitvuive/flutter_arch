@@ -80,7 +80,7 @@ class _LoginView
                   onPressed: () {
                     Navigator.of(context).pushNamed(Routes.register);
                   },
-                  child: const Text('Register'),
+                  child: Text(l10n.registerText),
                 )
               ],
             ),

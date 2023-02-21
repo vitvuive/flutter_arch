@@ -1,6 +1,8 @@
 {
     "@@locale": "en",
     "loginText": "Login",
+    "registerText": "Register",
+    "emailText": "Email",
     "userNameText": "User Name",
     "passwordText": "Password",
     "currentUserLoginText": "Current user login:",

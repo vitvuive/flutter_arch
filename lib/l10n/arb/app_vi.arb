@@ -1,6 +1,8 @@
 {
     "@@locale": "vi",
     "loginText": "Đăng nhập",
+    "registerText": "Đăng ký",
+    "emailText": "Email",
     "userNameText": "Tên đăng nhập",
     "passwordText": "Mật khẩu",
     "currentUserLoginText": "Người dùng hiện tại:",
@@ -24,5 +26,5 @@
     "currencyInputTitle": "Nhập số lượng tiền",
     "currentDateText": "Thời gian hiện tại:",
     "currentMoneyText": "Số tiền hiện tại:", 
-    "articleText": "Article" 
+    "articleText": "Bài đăng" 
 }
