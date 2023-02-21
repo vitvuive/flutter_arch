@@ -11,6 +11,8 @@
     "serverErrorText": "Server error",
     "unknownErrorText": "Unknown error",
     "refreshTokenFailText": "Refresh token fail",
+    "homeAppBarTitle": "Home",
+    "errorAppBarTitle": "Error",
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"

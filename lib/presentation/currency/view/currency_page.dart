@@ -18,9 +18,10 @@ class CurrencyPage extends BaseBlocStatelessWidget<CurrencyEvent, CurrencyState,
   @override
   Widget builder(BuildContext context, CurrencyState state) {
     final l10n = context.l10n;
-    return Scaffold(
+    return CScaffold(
       appBar: AppBar(
         title: Text(l10n.currencyAppBarTitle),
+        centerTitle: true,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8),

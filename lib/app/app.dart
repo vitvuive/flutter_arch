@@ -1,5 +1,6 @@
 import 'package:ddd_arch/app/blocs/setting_bloc/setting_bloc.dart';
 import 'package:ddd_arch/app/blocs/setting_bloc/setting_state.dart';
+import 'package:ddd_arch/app/navigation/route_observer.dart';
 import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/app/navigation_impl.dart';
 import 'package:ddd_arch/core/core.dart';
@@ -38,6 +39,7 @@ class AppView extends StatelessWidget {
           navigatorKey: navigatorKey,
           // routes: Routes.routes,
           onGenerateRoute: Routes.getRouteGenerate,
+          navigatorObservers: [MyRouteObserver()],
           themeMode: theme,
           darkTheme: darkTheme,
           theme: lightTheme,

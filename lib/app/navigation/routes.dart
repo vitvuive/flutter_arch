@@ -1,3 +1,4 @@
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/presentation/authen/login/view/login_page.dart';
 import 'package:ddd_arch/presentation/counter/view/counter_page2.dart';
 import 'package:ddd_arch/presentation/currency/view/currency_page.dart';
@@ -51,7 +52,7 @@ class Routes {
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(
       builder: (_) {
-        return Scaffold(
+        return CScaffold(
           appBar: AppBar(
             title: const Text('Error'),
           ),

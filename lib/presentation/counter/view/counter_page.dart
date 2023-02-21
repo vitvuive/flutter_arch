@@ -1,3 +1,4 @@
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/app/base/basebloc_stateful_state.dart';
@@ -34,7 +35,7 @@ class _CounterPageState
   @override
   Widget buildPage(BuildContext context) {
     final l10n = context.l10n;
-    return Scaffold(
+    return CScaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
       body: const Center(child: CounterText()),
       floatingActionButton: Column(

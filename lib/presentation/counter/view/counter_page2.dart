@@ -18,9 +18,10 @@ class CounterPage2
   Widget builder(BuildContext context, CounterState state) {
     final l10n = context.l10n;
     final counterLog = context.select((CounterBloc bloc) => bloc.state.counter);
-    return Scaffold(
+    return CScaffold(
       appBar: AppBar(
         title: Text(l10n.counterAppBarTitle),
+        centerTitle: true,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8),

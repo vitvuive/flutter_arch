@@ -1,4 +1,5 @@
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/demo_error/bloc/error_bloc.dart';
 import 'package:ddd_arch/presentation/demo_error/bloc/error_event.dart';
@@ -13,7 +14,11 @@ class ErrorPage
   @override
   Widget builder(BuildContext context, ErrorState state) {
     final l10n = context.l10n;
-    return Scaffold(
+    return CScaffold(
+      appBar: AppBar(
+        title: Text(l10n.errorAppBarTitle),
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

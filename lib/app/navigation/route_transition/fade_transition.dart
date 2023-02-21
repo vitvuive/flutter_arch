@@ -11,7 +11,7 @@ class FadedTransitionRoute extends PageRouteBuilder<dynamic> {
           ) {
             return widget;
           },
-          transitionDuration: const Duration(milliseconds: 2000),
+          transitionDuration: const Duration(milliseconds: 100),
           transitionsBuilder: (
             BuildContext context,
             Animation<double> animation,

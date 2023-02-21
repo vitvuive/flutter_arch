@@ -1,3 +1,4 @@
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/authen/login/blocs/login_bloc.dart';
@@ -22,7 +23,7 @@ class _LoginView extends StatelessWidget {
     final l10n = context.l10n;
     final bloc = context.read<LoginBloc>();
     //final currentState = context.select((LoginBloc bloc) => bloc.state);
-    return Scaffold(
+    return CScaffold(
       appBar: AppBar(
         title: Text(l10n.loginText),
       ),

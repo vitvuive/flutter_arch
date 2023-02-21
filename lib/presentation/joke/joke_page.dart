@@ -9,16 +9,20 @@ class JokePage extends BaseBlocStatelessWidget<JokeEvent, JokeState, JokeBloc> {
 
   @override
   Widget builder(BuildContext context, JokeState state) {
-    return Scaffold(
+    return CScaffold(
       appBar: AppBar(
         title: const Text('Joke'),
+        centerTitle: true,
         actions: [
-          DebounceWidget(
-            child: const Icon(Icons.replay),
-            onTap: () {
-              context.read<JokeBloc>().add(GetJokeEvent());
-              context.read<JokeBloc>().add(GetJokeListEvent());
-            },
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: DebounceWidget(
+              child: const Icon(Icons.replay),
+              onTap: () {
+                context.read<JokeBloc>().add(GetJokeEvent());
+                context.read<JokeBloc>().add(GetJokeListEvent());
+              },
+            ),
           )
         ],
       ),

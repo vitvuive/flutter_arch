@@ -24,14 +24,14 @@ class HomeView extends BaseBlocStatelessWidget<HomeEvent, HomeState, HomeBloc> {
   List<HomeEvent> get initEvents => [RequestSubcribeState()];
 
   @override
-  Widget builder(
-    BuildContext context,
-    HomeState state,
-  ) {
+  Widget builder(BuildContext context, HomeState state) {
+    final l10n = context.l10n;
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        return Scaffold(
+        return CScaffold(
           appBar: AppBar(
+            title: Text(l10n.homeAppBarTitle),
+            centerTitle: true,
             actions: [
               Padding(
                 padding: const EdgeInsets.only(right: 8),
@@ -39,7 +39,6 @@ class HomeView extends BaseBlocStatelessWidget<HomeEvent, HomeState, HomeBloc> {
                     ? DebounceWidget(
                         child: const Icon(
                           Icons.add,
-                          color: AppColors.whiteColor,
                         ),
                         onTap: () {
                           Navigator.pushNamed(

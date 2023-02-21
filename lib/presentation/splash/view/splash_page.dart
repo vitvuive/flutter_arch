@@ -1,4 +1,5 @@
 import 'package:bloc/src/bloc.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/presentation/splash/bloc/splash_event.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class SplashPage
 
   @override
   Widget builder(BuildContext context, BaseBlocState state) {
-    return Scaffold(
+    return CScaffold(
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

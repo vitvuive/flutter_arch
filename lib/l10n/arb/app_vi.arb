@@ -11,6 +11,8 @@
     "serverErrorText": "Lỗi server",
     "unknownErrorText": "Lỗi không xác định",
     "refreshTokenFailText": "Làm mới token thất bại",
+    "homeAppBarTitle": "Trang chủ",
+    "errorAppBarTitle": "Lỗi",
     "counterAppBarTitle": "Bộ Đếm",
     "@counterAppBarTitle": {
         "description": "Chữ hiện nơi tiêu đề ở trang Bộ Đếm"
