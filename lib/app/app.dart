@@ -34,7 +34,7 @@ class AppView extends StatelessWidget {
         final theme = state.themeMode;
         return MaterialApp(
           navigatorKey: navigatorKey,
-          // routes: Routes.routes,
+          routes: Routes.routes,
           onGenerateRoute: Routes.getRouteGenerate,
           navigatorObservers: [MyRouteObserver()],
           themeMode: theme,
