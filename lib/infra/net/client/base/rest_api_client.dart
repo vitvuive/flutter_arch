@@ -1,5 +1,4 @@
 import 'package:dartx/dartx.dart';
-import 'package:ddd_arch/core/utils/log_utils.dart';
 import 'package:ddd_arch/infra/net/client/base/dio_builder.dart';
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
 import 'package:ddd_arch/infra/net/mapper/base/base_error_response_mapper.dart';

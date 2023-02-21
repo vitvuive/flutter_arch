@@ -1,6 +1,5 @@
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
-import 'package:ddd_arch/core/resource/dimens.dart';
-import 'package:ddd_arch/core/widgets/debounce_widget.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/presentation/joke/blocs/joke_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

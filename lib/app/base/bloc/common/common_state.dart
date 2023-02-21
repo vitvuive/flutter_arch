@@ -1,5 +1,5 @@
 import 'package:ddd_arch/app/base/bloc/base_bloc_state.dart';
-import 'package:ddd_arch/core/exception/base/app_exception_wrapper.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'common_state.freezed.dart';

@@ -1,4 +1,4 @@
-import 'package:ddd_arch/core/utils/log_utils.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
 import 'package:ddd_arch/shared/config/log_config.dart';
 import 'package:dio/dio.dart';

@@ -6,6 +6,8 @@ import 'package:ddd_arch/presentation/home/home_page.dart';
 import 'package:ddd_arch/presentation/joke/joke_page.dart';
 import 'package:flutter/material.dart';
 
+import 'route_transition/transition.dart';
+
 class Routes {
   Routes._();
 
@@ -25,4 +27,59 @@ class Routes {
     counterPage: (context) => CounterPage2(),
     currency: (context) => CurrencyPage(),
   };
+
+  static Route<dynamic> getRouteGenerate(RouteSettings settings) {
+    Map args = (settings.arguments ?? {}) as Map;
+    switch (settings.name) {
+      case Routes.home:
+        return _buildRouteFade(settings, const HomePage());
+      case Routes.login:
+        return _buildRouteFade(settings, const LoginPage());
+      case Routes.joke:
+        return _buildRouteFade(settings, JokePage());
+      case Routes.errorPage:
+        return _buildRouteFade(settings, ErrorPage());
+      case Routes.counterPage:
+        return _buildRouteSlideRight(settings, CounterPage2());
+      case Routes.currency:
+        return _buildRouteSlideRight(settings, CurrencyPage());
+      default:
+        return _errorRoute();
+    }
+  }
+
+  static Route<dynamic> _errorRoute() {
+    return MaterialPageRoute(
+      builder: (_) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Error'),
+          ),
+          body: const Center(
+            child: Text('Page not found'),
+          ),
+        );
+      },
+    );
+  }
+
+  static PageRouteBuilder<dynamic> _buildRouteFade(
+    RouteSettings settings,
+    Widget builder,
+  ) {
+    return FadedTransitionRoute(
+      settings: settings,
+      widget: builder,
+    );
+  }
+
+  static PageRouteBuilder<dynamic> _buildRouteSlideRight(
+    RouteSettings settings,
+    Widget builder,
+  ) {
+    return SlideRightTransitionRoute(
+      settings: settings,
+      widget: builder,
+    );
+  }
 }

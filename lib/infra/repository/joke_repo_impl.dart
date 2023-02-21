@@ -1,10 +1,8 @@
 import 'package:ddd_arch/domain/models/joke/joke.dart';
-import 'package:ddd_arch/domain/models/map_json.dart';
 import 'package:ddd_arch/domain/repository/joke_repo.dart';
 import 'package:ddd_arch/infra/net/client/base/rest_api_client.dart';
 import 'package:ddd_arch/infra/net/client/non_auth_api_client.dart';
-import 'package:ddd_arch/infra/net/model/base_data/data_response.dart';
-import 'package:ddd_arch/shared/contants/url_contant.dart';
+import 'package:ddd_arch/shared/constants/url_constant.dart';
 import 'package:ddd_arch/shared/model/enum/shared_enum.dart';
 import 'package:injectable/injectable.dart';
 

@@ -1,8 +1,6 @@
-import 'package:ddd_arch/core/navigation/app_navigator.dart';
-import 'package:ddd_arch/core/navigation/app_popup_info.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:flutter/material.dart' as m;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 

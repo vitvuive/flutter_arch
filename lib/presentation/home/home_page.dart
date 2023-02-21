@@ -1,9 +1,6 @@
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
-import 'package:ddd_arch/app/base/bloc/base_bloc_state.dart';
 import 'package:ddd_arch/app/navigation/routes.dart';
-import 'package:ddd_arch/core/resource/colors.dart';
-import 'package:ddd_arch/core/widgets/debounce_widget.dart';
-import 'package:ddd_arch/di/locator.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/domain/repository/auth_repo.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/home/blocs/home_bloc.dart';

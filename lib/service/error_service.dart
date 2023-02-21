@@ -1,6 +1,4 @@
-import 'package:ddd_arch/core/exception/parse/parse_exception.dart';
-import 'package:ddd_arch/core/exception/remote/remote_exception.dart';
-import 'package:ddd_arch/core/exception/unknow/unknow_exception.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton

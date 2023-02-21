@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:ddd_arch/app/blocs/setting_bloc/setting_state.dart';
-import 'package:ddd_arch/core/resource/theme.dart';
 import 'package:ddd_arch/infra/preference/app_preference.dart';
 import 'package:ddd_arch/shared/format/string_format.dart';
 import 'package:equatable/equatable.dart';

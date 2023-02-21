@@ -2,7 +2,7 @@ import 'package:ddd_arch/app/blocs/setting_bloc/setting_bloc.dart';
 import 'package:ddd_arch/app/blocs/setting_bloc/setting_state.dart';
 import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/app/navigation_impl.dart';
-import 'package:ddd_arch/core/resource/theme.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/counter/view/counter_page2.dart';
@@ -36,7 +36,8 @@ class AppView extends StatelessWidget {
         final theme = state.themeMode;
         return MaterialApp(
           navigatorKey: navigatorKey,
-          routes: Routes.routes,
+          // routes: Routes.routes,
+          onGenerateRoute: Routes.getRouteGenerate,
           themeMode: theme,
           darkTheme: darkTheme,
           theme: lightTheme,

@@ -1,15 +1,13 @@
 import 'dart:io';
 
-import 'package:ddd_arch/core/exception/exception_mapper.dart';
-import 'package:ddd_arch/core/exception/remote/remote_exception.dart';
-import 'package:ddd_arch/core/exception/remote/server_error.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/infra/net/mapper/base/base_error_response_mapper.dart';
 import 'package:dio/dio.dart';
 
 class DioExceptionMapper extends ExceptionMapper<RemoteException> {
   DioExceptionMapper(this._errorResponseMapper);
 
-  final BaseErrorResponseMapper _errorResponseMapper;
+  final BaseErrorResponseMapper<dynamic> _errorResponseMapper;
 
   @override
   RemoteException map(Object? exception) {

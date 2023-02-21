@@ -35,9 +35,11 @@ class JokeBloc extends BaseBloc<JokeEvent, JokeState> {
     GetJokeListEvent event,
     Emitter<JokeState> emit,
   ) async {
-    await runBlocCatching(action: () async {
-      final jokeList = await _jokeService.getJokeList();
-      emit(state.copyWith(jokeList: jokeList));
-    });
+    await runBlocCatching(
+      action: () async {
+        final jokeList = await _jokeService.getJokeList();
+        emit(state.copyWith(jokeList: jokeList));
+      },
+    );
   }
 }

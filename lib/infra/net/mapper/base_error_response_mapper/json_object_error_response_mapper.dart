@@ -1,4 +1,4 @@
-import 'package:ddd_arch/core/exception/remote/server_error.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/infra/net/mapper/base/base_error_response_mapper.dart';
 import 'package:injectable/injectable.dart';
 
