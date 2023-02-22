@@ -129,6 +129,15 @@ class _AuthenticateView extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
+              Navigator.pushNamed(
+                context,
+                Routes.loadmoreDemo,
+              );
+            },
+            child: Text('loadmore demo'),
+          ),
+          TextButton(
+            onPressed: () {
               context.read<CommonBloc>().add(const ForceLogout());
             },
             child: Text(l10n.logoutText),
