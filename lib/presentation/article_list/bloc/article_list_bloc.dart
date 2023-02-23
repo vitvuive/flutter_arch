@@ -4,14 +4,14 @@ import 'package:ddd_arch/service/article_service.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class LoadMoreBloc extends BaseListBloc<Article> {
-  LoadMoreBloc(this._articleService);
+class ArticleListBloc extends BaseListBloc<Article> {
+  ArticleListBloc(this._articleService);
 
   final ArticleService _articleService;
 
   @override
   Future<List<Article>> getData({required int page}) async {
-    final data = await _articleService.getPaggingArticle(
+    final data = await _articleService.getPagingArticle(
       page: page,
     );
     return data;

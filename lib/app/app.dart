@@ -9,6 +9,7 @@ import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/splash/view/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -32,19 +33,22 @@ class AppView extends StatelessWidget {
     return BlocBuilder<SettingBloc, SettingState>(
       builder: (context, state) {
         final theme = state.themeMode;
-        return MaterialApp(
-          navigatorKey: navigatorKey,
-          routes: Routes.routes,
-          onGenerateRoute: Routes.getRouteGenerate,
-          navigatorObservers: [MyRouteObserver()],
-          themeMode: theme,
-          darkTheme: darkTheme,
-          theme: lightTheme,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          locale: Locale(state.langCode),
-          home: SplashPage(),
-          // home: const HomePage(),
+        return ScreenUtilInit(
+          builder: (context, child) => MaterialApp(
+            navigatorKey: navigatorKey,
+            routes: Routes.routes,
+            onGenerateRoute: Routes.getRouteGenerate,
+            navigatorObservers: [MyRouteObserver()],
+            themeMode: theme,
+            darkTheme: darkTheme,
+            theme: lightTheme,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: Locale(state.langCode),
+            home: SplashPage(),
+            // home: const HomePage(),
+          ),
+          // designSize: const Size(360, 690),
         );
       },
     );

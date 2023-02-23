@@ -1,5 +1,6 @@
 import 'package:ddd_arch/core/resource/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
   useMaterial3: true,
@@ -137,59 +138,59 @@ const ColorScheme colorSchemeDark = ColorScheme(
   surfaceTint: AppColors.surfaceTintColorDark,
 );
 
-TextTheme _lightTextTheme = const TextTheme(
-  displayLarge: TextStyle(fontSize: 96, color: AppColors.textColorLight),
-  displayMedium: TextStyle(fontSize: 60, color: AppColors.textColorLight),
-  displaySmall: TextStyle(fontSize: 48, color: AppColors.textColorLight),
-  headlineLarge: TextStyle(fontSize: 42, color: AppColors.textColorLight),
-  headlineMedium: TextStyle(fontSize: 34, color: AppColors.textColorLight),
-  headlineSmall: TextStyle(fontSize: 24, color: AppColors.textColorLight),
+TextTheme _lightTextTheme = TextTheme(
+  displayLarge: TextStyle(fontSize: 96.sp, color: AppColors.textColorLight),
+  displayMedium: TextStyle(fontSize: 60.sp, color: AppColors.textColorLight),
+  displaySmall: TextStyle(fontSize: 48.sp, color: AppColors.textColorLight),
+  headlineLarge: TextStyle(fontSize: 42.sp, color: AppColors.textColorLight),
+  headlineMedium: TextStyle(fontSize: 34.sp, color: AppColors.textColorLight),
+  headlineSmall: TextStyle(fontSize: 24.sp, color: AppColors.textColorLight),
   titleLarge: TextStyle(
-    fontSize: 20,
+    fontSize: 20.sp,
     color: AppColors.textColorLight,
     fontWeight: FontWeight.w500,
   ),
-  titleMedium: TextStyle(fontSize: 16, color: AppColors.textColorLight),
+  titleMedium: TextStyle(fontSize: 16.sp, color: AppColors.textColorLight),
   titleSmall: TextStyle(
-    fontSize: 14,
+    fontSize: 14.sp,
     color: AppColors.textColorLight,
     fontWeight: FontWeight.w500,
   ),
-  bodyLarge: TextStyle(fontSize: 16, color: AppColors.textColorLight),
-  bodyMedium: TextStyle(fontSize: 14, color: AppColors.textColorLight),
-  bodySmall: TextStyle(fontSize: 12, color: AppColors.textColorLight),
+  bodyLarge: TextStyle(fontSize: 16.sp, color: AppColors.textColorLight),
+  bodyMedium: TextStyle(fontSize: 14.sp, color: AppColors.textColorLight),
+  bodySmall: TextStyle(fontSize: 12.sp, color: AppColors.textColorLight),
   labelLarge: TextStyle(
-    fontSize: 14,
+    fontSize: 14.sp,
     color: AppColors.textColorLight,
     fontWeight: FontWeight.w500,
   ),
-  labelSmall: TextStyle(fontSize: 14, color: AppColors.textColorLight),
+  labelSmall: TextStyle(fontSize: 14.sp, color: AppColors.textColorLight),
 );
 
-TextTheme _darkTextTheme = const TextTheme(
-  displayLarge: TextStyle(fontSize: 96, color: AppColors.textColorDark),
-  displayMedium: TextStyle(fontSize: 60, color: AppColors.textColorDark),
-  displaySmall: TextStyle(fontSize: 48, color: AppColors.textColorDark),
-  headlineMedium: TextStyle(fontSize: 34, color: AppColors.textColorDark),
-  headlineSmall: TextStyle(fontSize: 24, color: AppColors.textColorDark),
+TextTheme _darkTextTheme = TextTheme(
+  displayLarge: TextStyle(fontSize: 96.sp, color: AppColors.textColorDark),
+  displayMedium: TextStyle(fontSize: 60.sp, color: AppColors.textColorDark),
+  displaySmall: TextStyle(fontSize: 48.sp, color: AppColors.textColorDark),
+  headlineMedium: TextStyle(fontSize: 34.sp, color: AppColors.textColorDark),
+  headlineSmall: TextStyle(fontSize: 24.sp, color: AppColors.textColorDark),
   titleLarge: TextStyle(
-    fontSize: 20,
+    fontSize: 20.sp,
     color: AppColors.textColorDark,
     fontWeight: FontWeight.w500,
   ),
-  titleMedium: TextStyle(fontSize: 16, color: AppColors.textColorDark),
+  titleMedium: TextStyle(fontSize: 16.sp, color: AppColors.textColorDark),
   titleSmall: TextStyle(
-    fontSize: 14,
+    fontSize: 14.sp,
     color: AppColors.textColorDark,
     fontWeight: FontWeight.w500,
   ),
-  bodyLarge: TextStyle(fontSize: 16, color: AppColors.textColorDark),
-  bodyMedium: TextStyle(fontSize: 14, color: AppColors.textColorDark),
-  bodySmall: TextStyle(fontSize: 12, color: AppColors.textColorDark),
+  bodyLarge: TextStyle(fontSize: 16.sp, color: AppColors.textColorDark),
+  bodyMedium: TextStyle(fontSize: 14.sp, color: AppColors.textColorDark),
+  bodySmall: TextStyle(fontSize: 12.sp, color: AppColors.textColorDark),
   labelLarge: TextStyle(
-    fontSize: 14,
+    fontSize: 14.sp,
     color: AppColors.textColorDark,
     fontWeight: FontWeight.w500,
   ),
-  labelSmall: TextStyle(fontSize: 14, color: AppColors.textColorDark),
+  labelSmall: TextStyle(fontSize: 14.sp, color: AppColors.textColorDark),
 );

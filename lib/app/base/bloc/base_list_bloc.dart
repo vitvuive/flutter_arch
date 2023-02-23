@@ -1,6 +1,6 @@
 import 'package:ddd_arch/app/base/bloc/base_bloc.dart';
 import 'package:ddd_arch/app/base/bloc/base_list_bloc_event.dart';
-import 'package:ddd_arch/shared/pagging_setting/pagging_setting.dart';
+import 'package:ddd_arch/shared/paging_setting/paging_setting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,7 +30,7 @@ abstract class BaseListBloc<T>
   void _checkLoadMore() {
     if (state.isLoading == false &&
         state.canLoadmore &&
-        _controller.position.extentAfter < PaggingSetting.threshHold) {
+        _controller.position.extentAfter < PagingSetting.threshHold) {
       onLoadmore();
     }
   }
@@ -86,7 +86,7 @@ abstract class BaseListBloc<T>
     await runBlocCatching(
       action: () async {
         final data = await getData(page: state.currentPage);
-        final canLoadmore = data.length == PaggingSetting.size;
+        final canLoadmore = data.length == PagingSetting.size;
         emit(
           state.copyWith(
             list: [
@@ -116,7 +116,7 @@ abstract class BaseListBloc<T>
     emit(
       state.copyWith(
         list: [],
-        currentPage: PaggingSetting.initPage,
+        currentPage: PagingSetting.initPage,
         canLoadmore: () => true,
       ),
     );

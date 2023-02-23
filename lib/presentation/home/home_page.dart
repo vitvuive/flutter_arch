@@ -1,6 +1,7 @@
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
 import 'package:ddd_arch/app/base/bloc/common/common_bloc.dart';
 import 'package:ddd_arch/app/base/bloc/common/common_event.dart';
+import 'package:ddd_arch/app/blocs/setting_bloc/setting_bloc.dart';
 import 'package:ddd_arch/app/navigation/routes.dart';
 import 'package:ddd_arch/core/core.dart';
 // import 'package:ddd_arch/app/navigation/routes.dart';
@@ -38,21 +39,47 @@ class HomeView extends BaseBlocStatelessWidget<HomeEvent, HomeState, HomeBloc> {
             title: Text(l10n.homeAppBarTitle),
             centerTitle: true,
             actions: [
+              // Padding(
+              //   padding: const EdgeInsets.only(right: 8),
+              //   child: state.authStatus == AuthStatus.authenticated
+              //       ? DebounceWidget(
+              //           child: const Icon(
+              //             Icons.add,
+              //           ),
+              //           onTap: () {
+              //             Navigator.pushNamed(
+              //               context,
+              //               Routes.joke,
+              //             );
+              //           },
+              //         )
+              //       : const SizedBox.shrink(),
+              // )
               Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: state.authStatus == AuthStatus.authenticated
-                    ? DebounceWidget(
-                        child: const Icon(
-                          Icons.add,
-                        ),
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            Routes.joke,
-                          );
-                        },
-                      )
-                    : const SizedBox.shrink(),
+                padding: const EdgeInsets.all(8),
+                child: DebounceWidget(
+                  child: const Icon(Icons.colorize),
+                  onTap: () =>
+                      context.read<SettingBloc>()..add(UpdateThemeEvent()),
+                ),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(8),
+              //   child: DebounceWidget(
+              //     child: const Icon(Icons.money),
+              //     onTap: () => Navigator.pushNamed(
+              //       context,
+              //       Routes.currency,
+              //     ),
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: DebounceWidget(
+                  child: const Icon(Icons.language),
+                  onTap: () =>
+                      context.read<SettingBloc>().add(ChangeLanguageEvent()),
+                ),
               )
             ],
           ),
@@ -131,10 +158,10 @@ class _AuthenticateView extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(
                 context,
-                Routes.loadmoreDemo,
+                Routes.articleList,
               );
             },
-            child: Text('loadmore demo'),
+            child: Text('Article list (lazy load)'),
           ),
           TextButton(
             onPressed: () {

@@ -7,7 +7,7 @@ import 'package:ddd_arch/presentation/currency/view/currency_page.dart';
 import 'package:ddd_arch/presentation/demo_error/view/error_page.dart';
 import 'package:ddd_arch/presentation/home/home_page.dart';
 import 'package:ddd_arch/presentation/joke/joke_page.dart';
-import 'package:ddd_arch/presentation/loadmore_demo/view/loadmore_page.dart';
+import 'package:ddd_arch/presentation/article_list/view/article_list_section.dart';
 import 'package:flutter/material.dart';
 
 import 'route_transition/transition.dart';
@@ -23,7 +23,7 @@ class Routes {
   static const String counterPage = '/counterPage';
   static const String currency = '/currency';
   static const String articles = '/articles';
-  static const String loadmoreDemo = '/loadmoreDemo';
+  static const String articleList = '/articleList';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => const HomePage(),
@@ -34,7 +34,7 @@ class Routes {
     currency: (context) => CurrencyPage(),
     register: (context) => RegisterPage(),
     articles: (context) => ArticlePage(),
-    loadmoreDemo: (context) => LoadMorePageDemo()
+    articleList: (context) => ArticleListSection()
   };
 
   static Route<dynamic> getRouteGenerate(RouteSettings settings) {

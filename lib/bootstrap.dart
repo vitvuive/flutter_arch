@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:ddd_arch/di/locator.dart';
 import 'package:ddd_arch/shared/network_manager/network_manager.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -34,6 +35,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   await runZonedGuarded(
     () async {
       await getIt<NetworkManager>().init();
+      await ScreenUtil.ensureScreenSize();
       runApp(await builder());
     },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),

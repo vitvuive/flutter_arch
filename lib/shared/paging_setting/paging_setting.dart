@@ -1,5 +1,5 @@
-class PaggingSetting {
-  PaggingSetting._();
+class PagingSetting {
+  PagingSetting._();
 
   /// some backend have init page from 0;
   static const int initPage = 1;

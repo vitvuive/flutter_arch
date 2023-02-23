@@ -1,11 +1,11 @@
 import 'package:ddd_arch/app/base/bloc/base_bloc_state.dart';
-import 'package:ddd_arch/shared/pagging_setting/pagging_setting.dart';
+import 'package:ddd_arch/shared/paging_setting/paging_setting.dart';
 
 /// T is entity type of list
 class ListBlocState<T> extends BaseBlocState {
   ListBlocState({
     this.list = const [],
-    this.currentPage = PaggingSetting.initPage,
+    this.currentPage = PagingSetting.initPage,
     this.isLoading = false,
     this.canLoadmore = true,
   });

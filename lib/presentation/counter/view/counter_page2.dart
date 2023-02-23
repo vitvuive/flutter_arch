@@ -22,33 +22,6 @@ class CounterPage2
       appBar: AppBar(
         title: Text(l10n.counterAppBarTitle),
         centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: DebounceWidget(
-              child: const Icon(Icons.colorize),
-              onTap: () => context.read<SettingBloc>()..add(UpdateThemeEvent()),
-            ),
-          ),
-          // Padding(
-          //   padding: const EdgeInsets.all(8),
-          //   child: DebounceWidget(
-          //     child: const Icon(Icons.money),
-          //     onTap: () => Navigator.pushNamed(
-          //       context,
-          //       Routes.currency,
-          //     ),
-          //   ),
-          // ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: DebounceWidget(
-              child: const Icon(Icons.language),
-              onTap: () =>
-                  context.read<SettingBloc>().add(ChangeLanguageEvent()),
-            ),
-          )
-        ],
       ),
       body: Stack(
         children: [

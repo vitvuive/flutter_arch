@@ -8,7 +8,7 @@ import 'package:ddd_arch/infra/net/mapper/article_data_mapper.dart';
 import 'package:ddd_arch/infra/net/model/article_data.dart';
 import 'package:ddd_arch/infra/net/model/base_data/data_response.dart';
 import 'package:ddd_arch/shared/model/enum/shared_enum.dart';
-import 'package:ddd_arch/shared/pagging_setting/pagging_setting.dart';
+import 'package:ddd_arch/shared/paging_setting/paging_setting.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ArticleRepo)
@@ -34,7 +34,7 @@ class ArticleRepoImpl extends ArticleRepo {
   @override
   Future<List<Article>> getListArtPage({
     int page = 0,
-    int size = PaggingSetting.size,
+    int size = PagingSetting.size,
   }) async {
     final datas =
         await _authClient.request<DataListResponse<ArticleData>, ArticleData>(
