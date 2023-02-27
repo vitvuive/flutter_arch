@@ -5,6 +5,7 @@ import 'package:ddd_arch/presentation/authen/register/register.dart';
 import 'package:ddd_arch/presentation/counter/view/counter_page2.dart';
 import 'package:ddd_arch/presentation/currency/view/currency_page.dart';
 import 'package:ddd_arch/presentation/demo_error/view/error_page.dart';
+import 'package:ddd_arch/presentation/friend_list/friend_list.dart';
 import 'package:ddd_arch/presentation/home/home_page.dart';
 import 'package:ddd_arch/presentation/joke/joke_page.dart';
 import 'package:ddd_arch/presentation/article_list/view/article_list_section.dart';
@@ -24,6 +25,7 @@ class Routes {
   static const String currency = '/currency';
   static const String articles = '/articles';
   static const String articleList = '/articleList';
+  static const String friendList = '/friendList';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => const HomePage(),
@@ -34,7 +36,8 @@ class Routes {
     currency: (context) => CurrencyPage(),
     register: (context) => RegisterPage(),
     articles: (context) => ArticlePage(),
-    articleList: (context) => ArticleListSection()
+    articleList: (context) => ArticleListSection(),
+    friendList: (_) => FriendListPage(),
   };
 
   static Route<dynamic> getRouteGenerate(RouteSettings settings) {

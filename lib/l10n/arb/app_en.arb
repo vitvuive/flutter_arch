@@ -26,5 +26,6 @@
     "currencyInputTitle": "Input Currency",
     "currentDateText": "Current Date:",
     "currentMoneyText": "Current Money:", 
-    "articleText": "Article" 
+    "articleText": "Article", 
+    "friendListText": "Friend list(ObjBox demo)"
 }

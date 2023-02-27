@@ -1,3 +1,4 @@
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/core/navigation/app_popup_info.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 

@@ -26,5 +26,6 @@
     "currencyInputTitle": "Nhập số lượng tiền",
     "currentDateText": "Thời gian hiện tại:",
     "currentMoneyText": "Số tiền hiện tại:", 
-    "articleText": "Bài đăng" 
+    "articleText": "Bài đăng", 
+    "friendListText": "Danh sách bạn (ObjBox demo)"
 }
