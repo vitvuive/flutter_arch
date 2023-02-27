@@ -1,4 +1,6 @@
 import 'package:ddd_arch/domain/repository/auth_repo.dart';
+import 'package:ddd_arch/infra/database/objectbox_data_base/models/token.dart';
+import 'package:ddd_arch/infra/database/objectbox_data_base/token_dao.dart';
 import 'package:ddd_arch/infra/net/client/base/rest_api_client.dart';
 import 'package:ddd_arch/infra/net/client/non_auth_api_client.dart';
 import 'package:ddd_arch/infra/net/mapper/user_data_mapper.dart';
@@ -12,22 +14,25 @@ import 'package:rxdart/rxdart.dart';
 class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl(
     this._appPreference,
+    this._tokenDao,
     this._nonAuthClient,
     this._userDataMapper,
   ) {
     _init();
   }
 
-  final _streamStatus = BehaviorSubject.seeded(AuthStatus.unknow);
+  final _streamStatus = BehaviorSubject.seeded(false);
 
   final AppPreference _appPreference;
+  final TokenDao _tokenDao;
   final NoneAuthAppServerApiClient _nonAuthClient;
   final UserDataMapper _userDataMapper;
 
   Future<void> _init() async {
-    final user = await _appPreference.getUserCurrentUser();
-    if (user != null) {
-      _streamStatus.add(AuthStatus.authenticated);
+    //final user = await _appPreference.getUserCurrentUser();
+    final token = _tokenDao.getToken();
+    if (token != null) {
+      _streamStatus.add(token.accessToken.isNotEmpty);
     }
   }
 
@@ -39,7 +44,7 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<void> facebookLogin() async {
     await Future<void>.delayed(const Duration(seconds: 2));
-    _streamStatus.add(AuthStatus.authenticated);
+    _streamStatus.add(true);
   }
 
   @override
@@ -49,13 +54,14 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<void> logout() async {
-    await _appPreference.removeUser();
+    // await _appPreference.removeUser();
+    _tokenDao.deleteAllToken();
     await Future<void>.delayed(const Duration(seconds: 2));
-    _streamStatus.add(AuthStatus.unAuthenticated);
+    _streamStatus.add(false);
   }
 
   @override
-  Stream<AuthStatus> streamAuthStatus() => _streamStatus.asBroadcastStream();
+  Stream<bool> streamAuthStatus() => _streamStatus.asBroadcastStream();
 
   @override
   Future<bool> userNamePasswordLogin({
@@ -71,15 +77,17 @@ class AuthRepoImpl extends AuthRepo {
         'password': password,
       },
     );
-    await _appPreference.saveToken(result.token ?? '');
+    _tokenDao.putToken(Token(accessToken: result.token ?? ''));
     await _appPreference.setUser(_userDataMapper.mapToEntity(result));
-    _streamStatus.add(AuthStatus.authenticated);
+    _streamStatus.add(result.token?.isNotEmpty ?? false);
     return true;
   }
 
   @override
-  Future<bool> register(
-      {required String username, required String password}) async {
+  Future<bool> register({
+    required String username,
+    required String password,
+  }) async {
     final body = {
       'name': 'Test user',
       'email': username,

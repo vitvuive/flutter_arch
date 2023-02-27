@@ -1,6 +1,8 @@
 import 'dart:collection';
 import 'dart:io';
 
+import 'package:ddd_arch/infra/database/objectbox_data_base/models/token.dart';
+import 'package:ddd_arch/infra/database/objectbox_data_base/token_dao.dart';
 import 'package:ddd_arch/infra/net/client/non_auth_api_client.dart';
 import 'package:ddd_arch/infra/net/interceptor/base_interceptor.dart';
 import 'package:ddd_arch/infra/net/refresh_token_api.dart';
@@ -13,6 +15,7 @@ import 'package:tuple/tuple.dart';
 class RefreshTokenInterceptor extends BaseInterceptor {
   RefreshTokenInterceptor(
     this.appPreference,
+    this.tokenDao,
     this.refreshTokenApi,
     this.noneAuthAppServerApiClient,
   );
@@ -21,6 +24,7 @@ class RefreshTokenInterceptor extends BaseInterceptor {
   int get priority => BaseInterceptor.refreshTokenPriority;
 
   final AppPreference appPreference;
+  final TokenDao tokenDao;
   final RefreshTokenApi refreshTokenApi;
   final NoneAuthAppServerApiClient noneAuthAppServerApiClient;
 
@@ -64,10 +68,9 @@ class RefreshTokenInterceptor extends BaseInterceptor {
     final refreshToken = appPreference.refreshToken;
     final refreshTokenReponse =
         await refreshTokenApi.refreshToken(refreshToken);
-    await Future.wait(
-      [
-        appPreference.saveToken(refreshTokenReponse.result?.accessToken ?? ''),
-      ],
+
+    tokenDao.putToken(
+      Token(accessToken: refreshTokenReponse.result?.accessToken ?? ''),
     );
     return refreshTokenReponse.result?.accessToken ?? '';
   }

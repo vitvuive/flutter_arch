@@ -8,3 +8,4 @@ linter:
     avoid_bool_literals_in_conditional_expressions: false
     prefer_if_elements_to_conditional_expressions: false
     cascade_invocations: false
+    prefer_int_literals: false

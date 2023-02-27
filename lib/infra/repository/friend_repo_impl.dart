@@ -1,7 +1,7 @@
 import 'package:ddd_arch/domain/models/friend/friend.dart';
 import 'package:ddd_arch/domain/repository/friend_repo.dart';
 import 'package:ddd_arch/infra/database/objectbox_data_base/mapper/friend_data_mapper.dart';
-import 'package:ddd_arch/infra/database/objectbox_data_base/user_database.dart';
+import 'package:ddd_arch/infra/database/objectbox_data_base/user_dao.dart';
 import 'package:injectable/injectable.dart';
 
 @Singleton(as: FriendRepo)
@@ -9,7 +9,7 @@ class FriendRepoImpl implements FriendRepo {
   FriendRepoImpl(this._mapper, this._userDd);
 
   final FriendDataMapper _mapper;
-  final UserDatabase _userDd;
+  final UserDao _userDd;
 
   @override
   int deleteAllFiend() {

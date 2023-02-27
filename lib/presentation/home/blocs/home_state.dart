@@ -8,7 +8,7 @@ part 'home_state.freezed.dart';
 @freezed
 class HomeState extends BaseBlocState with _$HomeState {
   const factory HomeState({
-    @Default(AuthStatus.unAuthenticated) AuthStatus authStatus,
+    @Default(false) bool authStatus,
     User? user,
   }) = _HomeState;
 }

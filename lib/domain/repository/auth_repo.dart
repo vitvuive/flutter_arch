@@ -14,7 +14,7 @@ abstract class AuthRepo {
 
   Future<void> logout();
 
-  Stream<AuthStatus> streamAuthStatus();
+  Stream<bool> streamAuthStatus();
 
   Future<bool> register({
     required String username,

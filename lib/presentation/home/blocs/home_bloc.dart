@@ -44,7 +44,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
     UpdateUserProfile event,
     Emitter<HomeState> emit,
   ) async {
-    if (state.authStatus == AuthStatus.authenticated) {
+    if (state.authStatus) {
       final user = await profileService.getCurrentUser();
       emit(state.copyWith(user: user));
     }

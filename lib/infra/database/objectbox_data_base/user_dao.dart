@@ -3,8 +3,8 @@ import 'package:injectable/injectable.dart';
 import 'package:objectbox/objectbox.dart';
 
 @lazySingleton
-class UserDatabase {
-  UserDatabase(this.store);
+class UserDao {
+  UserDao(this.store);
 
   final Store store;
 

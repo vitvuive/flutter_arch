@@ -57,7 +57,7 @@ class _LoginView
                   ),
                   validationMessages: {
                     'required': (o) => 'password is required',
-                    'minLenght': (o) => 'min length is 8',
+                    'minLength': (o) => 'min length is 8',
                   },
                   onChanged: (value) {},
                 ),

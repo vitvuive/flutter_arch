@@ -1,5 +1,6 @@
 import 'package:ddd_arch/domain/models/user/user.dart';
 import 'package:ddd_arch/domain/repository/user_repo.dart';
+import 'package:ddd_arch/infra/database/objectbox_data_base/token_dao.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton

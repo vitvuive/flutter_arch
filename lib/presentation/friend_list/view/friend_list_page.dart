@@ -1,7 +1,7 @@
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
+import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/friend_list/bloc/friend_list_event.dart';
 import 'package:flutter/material.dart';
-import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
@@ -14,14 +14,22 @@ class FriendListPage extends BaseBlocStatelessWidget<FriendListEvent,
   Widget builder(BuildContext context, FriendListState state) {
     final lang = context.l10n;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text(lang.friendListText),
       ),
-      body: Column(
-        children: [
-          Expanded(child: _ListFriendView()),
-          Expanded(child: _RegisterFriendView()),
-        ],
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height -
+              AppBar().preferredSize.height -
+              MediaQuery.of(context).padding.top,
+          child: Column(
+            children: [
+              Expanded(child: _ListFriendView()),
+              Expanded(child: _RegisterFriendView()),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -39,23 +47,26 @@ class _ListFriendView extends StatelessWidget {
       itemCount: friends.length,
       itemBuilder: (context, index) {
         final data = friends[index];
-        return Card(
-          shadowColor: Theme.of(context).colorScheme.onBackground,
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Text('Name: ${data.name}, phone: ${data.phone}'),
-                ),
-                IconButton(
-                  onPressed: () {
-                    bloc.add(DeleteFriendEvent(data));
-                  },
-                  icon: const Icon(Icons.delete),
-                )
-              ],
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+            shadowColor: Theme.of(context).colorScheme.onBackground,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text('Name: ${data.name}, phone: ${data.phone}'),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      bloc.add(DeleteFriendEvent(data));
+                    },
+                    icon: const Icon(Icons.delete),
+                  )
+                ],
+              ),
             ),
           ),
         );
