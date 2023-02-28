@@ -28,4 +28,11 @@ abstract class AppNavigator {
 
   /// need improve this function
   void showErrorSnackBar(String message);
+
+  // show snackbar with timer
+  void showSnackBarWithTimer(
+    String message,
+    int durationInSeconds,
+    Function() action,
+  );
 }

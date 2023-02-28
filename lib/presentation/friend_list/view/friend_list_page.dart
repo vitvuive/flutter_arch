@@ -1,4 +1,5 @@
 import 'package:ddd_arch/app/base/basebloc_stateless_view.dart';
+import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:ddd_arch/presentation/friend_list/bloc/friend_list_event.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,7 @@ class FriendListPage extends BaseBlocStatelessWidget<FriendListEvent,
   @override
   Widget builder(BuildContext context, FriendListState state) {
     final lang = context.l10n;
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
+    return CScaffold(
       appBar: AppBar(
         title: Text(lang.friendListText),
       ),
@@ -80,44 +80,48 @@ class _RegisterFriendView extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<FriendListBloc>();
     return ReactiveForm(
-        formGroup: bloc.form,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-          ),
-          child: Column(
-            children: [
-              ReactiveTextField(
-                decoration: const InputDecoration(label: Text('Name')),
-                formControlName: 'name',
-              ),
-              ReactiveTextField(
-                decoration: const InputDecoration(label: Text('Phone')),
-                formControlName: 'phone',
-              ),
-              ReactiveFormConsumer(
-                builder: (context, form, child) {
-                  return TextButton(
-                    onPressed: form.valid
-                        ? () {
-                            bloc.add(AddFriendEvent());
-                          }
-                        : null,
-                    child: const Text('Submit'),
-                  );
-                },
-              ),
-              ReactiveFormConsumer(builder: (context, form, child) {
+      formGroup: bloc.form,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        child: Column(
+          children: [
+            ReactiveTextField(
+              decoration: const InputDecoration(label: Text('Name')),
+              formControlName: 'name',
+            ),
+            ReactiveTextField(
+              decoration: const InputDecoration(label: Text('Phone')),
+              formControlName: 'phone',
+            ),
+            ReactiveFormConsumer(
+              builder: (context, form, child) {
                 return TextButton(
-                    onPressed: bloc.state.friends.isNotEmpty
-                        ? () {
-                            bloc.add(CleartFriendEvent());
-                          }
-                        : null,
-                    child: const Text('Clear'));
-              })
-            ],
-          ),
-        ));
+                  onPressed: form.valid
+                      ? () {
+                          bloc.add(AddFriendEvent());
+                        }
+                      : null,
+                  child: const Text('Submit'),
+                );
+              },
+            ),
+            ReactiveFormConsumer(
+              builder: (context, form, child) {
+                return TextButton(
+                  onPressed: bloc.state.friends.isNotEmpty
+                      ? () {
+                          bloc.add(ClearFriendEvent());
+                        }
+                      : null,
+                  child: const Text('Clear'),
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

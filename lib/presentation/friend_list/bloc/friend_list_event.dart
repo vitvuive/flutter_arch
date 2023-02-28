@@ -9,10 +9,16 @@ class AddFriendEvent extends FriendListEvent {}
 
 class InitLoadFriendEvent extends FriendListEvent {}
 
-class CleartFriendEvent extends FriendListEvent {}
+class ClearFriendEvent extends FriendListEvent {}
 
 class DeleteFriendEvent extends FriendListEvent {
   DeleteFriendEvent(this.friend);
+
+  final Friend friend;
+}
+
+class UndoDeleteFriend extends FriendListEvent {
+  UndoDeleteFriend(this.friend);
 
   final Friend friend;
 }

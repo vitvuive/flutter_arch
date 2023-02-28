@@ -10,7 +10,7 @@ class CScaffold extends StatelessWidget {
     this.drawer,
     this.endDrawer,
     this.appbar,
-    this.resizeToAvoidBottom = true,
+    this.resizeToAvoidBottomInset = true,
     this.floatingActionButton,
     this.appBar,
     this.backgroundAppColor,
@@ -25,7 +25,7 @@ class CScaffold extends StatelessWidget {
   final Widget? appbar;
   final AppBar? appBar;
   final Widget? floatingActionButton;
-  final bool? resizeToAvoidBottom;
+  final bool? resizeToAvoidBottomInset;
   final bool topSafe;
 
   @override
@@ -36,7 +36,7 @@ class CScaffold extends StatelessWidget {
         top: topSafe,
         child: Scaffold(
           appBar: appBar,
-          resizeToAvoidBottomInset: resizeToAvoidBottom,
+          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
           backgroundColor:
               backgroundColor ?? Theme.of(context).colorScheme.background,
           body: Column(

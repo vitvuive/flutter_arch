@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:ddd_arch/core/core.dart';
 import 'package:ddd_arch/l10n/l10n.dart';
 import 'package:flutter/material.dart' as m;
@@ -69,8 +70,11 @@ class NavigationImpl extends AppNavigator {
   }
 
   @override
-  Future<T?> showDialog<T extends Object?>(AppPopupInfo appPopupInfo,
-      {bool barrierDismissible = true, bool useSafeArea = false}) {
+  Future<T?> showDialog<T extends Object?>(
+    AppPopupInfo appPopupInfo, {
+    bool barrierDismissible = true,
+    bool useSafeArea = false,
+  }) {
     return m.showDialog(
       context: currentState.context,
       builder: (context) {
@@ -81,6 +85,40 @@ class NavigationImpl extends AppNavigator {
           child: _appPopupInfoMapper.map(appPopupInfo, this),
         );
       },
+    );
+  }
+
+  @override
+  void showSnackBarWithTimer(
+    String message,
+    int durationInSeconds,
+    Function() action,
+  ) {
+    m.ScaffoldMessenger.of(currentState.context).showSnackBar(
+      m.SnackBar(
+        content: m.Row(
+          mainAxisAlignment: m.MainAxisAlignment.spaceBetween,
+          children: [
+            m.Text(message),
+            CircularCountDownTimer(
+              width: 20,
+              height: 20,
+              duration: durationInSeconds,
+              fillColor: AppColors.whiteColor,
+              ringColor: AppColors.secondaryColorLight,
+              isTimerTextShown: false,
+              isReverseAnimation: true,
+              strokeWidth: 2,
+            )
+          ],
+        ),
+        duration: Duration(seconds: durationInSeconds),
+        backgroundColor: AppColors.secondaryColorLight,
+        action: m.SnackBarAction(
+          label: 'Undo',
+          onPressed: action,
+        ),
+      ),
     );
   }
 }

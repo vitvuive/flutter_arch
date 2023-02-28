@@ -11,14 +11,19 @@ import 'friend_list_state.dart';
 
 @injectable
 class FriendListBloc extends BaseBloc<FriendListEvent, FriendListState> {
-  FriendListBloc(this._friendService) : super(const FriendListState()) {
+  FriendListBloc(
+    this._friendService,
+    this._appNavigator,
+  ) : super(const FriendListState()) {
     on<RequestSubcribeEvent>(_requestSubcribe);
     on<AddFriendEvent>(_addFriend);
-    on<CleartFriendEvent>(_clearFriend);
+    on<ClearFriendEvent>(_clearFriend);
     on<DeleteFriendEvent>(_deleteFriend);
+    on<UndoDeleteFriend>(_undoDeleteFriend);
   }
 
   final FriendService _friendService;
+  final AppNavigator _appNavigator;
 
   final form = FormGroup({
     'name': FormControl<String>(
@@ -63,7 +68,7 @@ class FriendListBloc extends BaseBloc<FriendListEvent, FriendListState> {
   }
 
   Future<void> _clearFriend(
-    CleartFriendEvent event,
+    ClearFriendEvent event,
     Emitter<FriendListState> emit,
   ) async {
     _friendService.clearFriend();
@@ -74,5 +79,25 @@ class FriendListBloc extends BaseBloc<FriendListEvent, FriendListState> {
     Emitter<FriendListState> emit,
   ) async {
     _friendService.deleteFriend(event.friend);
+    emit(state.copyWith(currentDelete: event.friend));
+    _appNavigator.showSnackBarWithTimer(
+      'Deleted friend ${event.friend.name}',
+      3,
+      () => add(UndoDeleteFriend(state.currentDelete!)),
+    );
+  }
+
+  Future<void> _undoDeleteFriend(
+    UndoDeleteFriend event,
+    Emitter<FriendListState> emit,
+  ) async {
+    _friendService.addFriend(
+      Friend(
+        name: event.friend.name,
+        phone: event.friend.phone,
+        id: event.friend.id,
+      ),
+    );
+    emit(state.copyWith(currentDelete: event.friend));
   }
 }
