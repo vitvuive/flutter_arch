@@ -51,9 +51,33 @@
           "targetId": "3:7392877562854788814"
         }
       ]
+    },
+    {
+      "id": "5:6445729127591204747",
+      "lastPropertyId": "3:6357469650199551936",
+      "name": "Token",
+      "properties": [
+        {
+          "id": "1:6083249282213558986",
+          "name": "accessToken",
+          "type": 9
+        },
+        {
+          "id": "2:8833877112662220089",
+          "name": "refreshToken",
+          "type": 9
+        },
+        {
+          "id": "3:6357469650199551936",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "4:6955561211212002554",
+  "lastEntityId": "5:6445729127591204747",
   "lastIndexId": "0:0",
   "lastRelationId": "2:5836284345872301252",
   "lastSequenceId": "0:0",
